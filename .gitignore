@@ -1,0 +1,15 @@
+*
+
+!.gitignore
+
+!lessons
+
+!lessons/python
+!lessons/python/*.org
+
+!lessons/elisp
+!lessons/elisp/*.org
+
+!lessons/bash
+!lessons/bash/*.org
+
