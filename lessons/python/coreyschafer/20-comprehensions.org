@@ -1,7 +1,20 @@
-#+PROPERTY: header-args:python   :results output
+#+title: 20 Comprehensions - How they work and why you should be using them
 
-[[https://www.youtube.com/watch?v=3dt4OGnU5sM][Python Tutorial: Comprehensions - How they work and why you should be using them]]
+#+OPTIONS: ^:nil
 
+# don't export trees tagged with:
+#+EXCLUDE_TAGS: tasklist noexport broken
+# do not export any sections marked as tasks unless TODO or DONE
+#+OPTIONS: tasks:("TODO" "DONE")
+# do not include task keywords in export
+#+OPTIONS: todo:nil
+
+#+PROPERTY: header-args :results output :exports both
+
+
+Python Tutorial: Comprehensions - How they work and why you should be using them]]
+
+Be sure to see the [[https://raw.githubusercontent.com/rileyrg/development-education/main/lessons/python/coreyschafer/20-comprehensions.md][markdown]] export for the result blocks.
 
 * list comprehensions
   :PROPERTIES:
@@ -29,7 +42,6 @@
 
    #+RESULTS:
    : [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
 
 *** comprehension
     #+begin_src python
@@ -136,7 +148,7 @@
   : [('Bruce', 'Batman'), ('Clark', 'Superman'), ('Peter', 'Spiderman')]
 
    #+begin_src python
-     myd={}
+     myd={} # = dict()
      for n,h in zip(names, heroes):
          myd[n]=h
      print(myd)
@@ -230,6 +242,7 @@
    :LOGBOOK:
    - State "TODO"       from              [2021-03-27 Sat 11:50]
    :END:
+   Note the use of the parenthesis for the generator constructor.
    #+begin_src python
      my_gen = (n*n for n in nums)
      print([n for n in my_gen])

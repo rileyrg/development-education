@@ -1,15 +1,20 @@
 *
 
 !.gitignore
+!*.org
+!*.md
+
 
 !lessons
 
 !lessons/python
 !lessons/python/*.org
+!lessons/python/*.md
+!lessons/python/coreyschafer
+!lessons/python/coreyschafer/*
 
 !lessons/elisp
 !lessons/elisp/*.org
 
 !lessons/bash
 !lessons/bash/*.org
-

@@ -1,0 +1,19 @@
+#+TITLE: Working Through Python Tutorials
+#+AUTHOR: Richard G. Riley
+#+title: Python Tutorial Workthroughs
+#+LANGUAGE: en
+#+STARTUP: overview
+
+#+OPTIONS: toc:nil
+#+OPTIONS: ^:nil
+
+# don't export trees tagged with:
+#+EXCLUDE_TAGS: tasklist noexport broken
+# do not export any sections marked as tasks unless TODO or DONE
+#+OPTIONS: tasks:("TODO" "DONE")
+# do not include task keywords in export
+#+OPTIONS: todo:nil
+
+
+
+* [[file:coreyschafer/README.org][Corey Schafer Tutorials]]

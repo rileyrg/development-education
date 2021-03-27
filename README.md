@@ -1,1 +1,1 @@
-# development-education
+# [Python](lessons/python/README.md)

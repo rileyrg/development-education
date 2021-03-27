@@ -1,0 +1,21 @@
+#+TITLE: Cory Schafer Tutorials
+#+LANGUAGE: en
+#+STARTUP: overview
+
+#+EXPORT_FILE_NAME: README.md
+
+#+OPTIONS: toc:nil
+#+OPTIONS: ^:nil
+
+# don't export trees tagged with:
+#+EXCLUDE_TAGS: tasklist noexport broken
+# do not export any sections marked as tasks unless TODO or DONE
+#+OPTIONS: tasks:("TODO" "DONE")
+# do not include task keywords in export
+#+OPTIONS: todo:nil
+
+
+ Full Playlist [[https://www.youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU][here]].
+** 20 Comprehensions : How they work and why you should be using them
+*** [[https://www.youtube.com/watch?v=3dt4OGnU5sM&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=20][Video]]
+*** [[file:20-comprehensions.org][workthrough]]
