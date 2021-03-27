@@ -1,0 +1,107 @@
+#+title: 19 Slicing Lists And Strings
+
+#+OPTIONS: ^:nil
+
+# don't export trees tagged with:
+#+EXCLUDE_TAGS: tasklist noexport broken
+# do not export any sections marked as tasks unless TODO or DONE
+#+OPTIONS: tasks:("TODO" "DONE")
+# do not include task keywords in export
+#+OPTIONS: todo:nil
+
+#+PROPERTY: header-args:python  :results output :exports both :session "*python slicing lists and strings*"
+
+
+[[https://www.youtube.com/watch?v=ajrtAuDg3yw&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=19][Python Tutorial: Slicing Lists And Strings]]
+
+Be sure to see the [[https://raw.githubusercontent.com/rileyrg/development-education/main/lessons/python/coreyschafer/19-slicing.md][markdown]] export for the result blocks.
+
+* list basics
+
+  #+begin_src python
+    myl=[0,1,2,3,4,5,6,7,8,9]
+    print(myl)
+  #+end_src
+
+  #+RESULTS:
+  : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+** index 0
+  #+begin_src python
+    print(myl[0])
+  #+end_src
+
+  #+RESULTS:
+  : 0
+
+** subsection of list
+   #+begin_src python
+     print (myl[1:2]) #non inclusive
+     print (myl[1:3]) #non inclusive
+   #+end_src
+
+   #+RESULTS:
+   : [1]
+   : [1, 2]
+
+** negative indices
+
+*** negative start positive end
+    #+begin_src python
+      print(myl[-10:3])
+    #+end_src
+
+    #+RESULTS:
+    : [0, 1, 2]
+*** negative start negative end
+    #+begin_src python
+      print(myl[-10:-1])
+    #+end_src
+
+    #+RESULTS:
+    : [0, 1, 2, 3, 4, 5, 6, 7, 8]
+*** postive start negative end with a positive step
+    #+begin_src python
+      print(myl[0:-1:2])
+    #+end_src
+
+    #+RESULTS:
+    : [0, 2, 4, 6, 8]
+*** postive start negative end with a negaive step
+    #+begin_src python
+      print(myl[0:-1:-1])
+    #+end_src
+
+    #+RESULTS:
+    : []
+*** negative start negative end with a negative step
+    #+begin_src python
+      print(myl[-1:-10:-1])
+    #+end_src
+
+    #+RESULTS:
+    : [9, 8, 7, 6, 5, 4, 3, 2, 1]
+*** negative start positive end with a negative step
+    #+begin_src python
+      print(myl[-1:3:-1])
+    #+end_src
+
+    #+RESULTS:
+    : [9, 8, 7, 6, 5, 4]
+
+
+*** reverse list wit negative step
+    #+begin_src python
+      print(myl[::-1])
+    #+end_src
+
+    #+RESULTS:
+    : [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+
+*** TODO continue from 7:36
+    SCHEDULED: <2021-03-28 Sun>
+    :LOGBOOK:
+    - State "TODO"       from              [2021-03-27 Sat 20:53]
+    :END:

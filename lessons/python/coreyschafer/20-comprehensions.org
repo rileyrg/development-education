@@ -12,7 +12,7 @@
 #+PROPERTY: header-args :results output :exports both
 
 
-Python Tutorial: Comprehensions - How they work and why you should be using them]]
+[[https://www.youtube.com/watch?v=3dt4OGnU5sM&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=21][Python Tutorial: Comprehensions - How they work and why you should be using them]​]​]]
 
 Be sure to see the [[https://raw.githubusercontent.com/rileyrg/development-education/main/lessons/python/coreyschafer/20-comprehensions.md][markdown]] export for the result blocks.
 
