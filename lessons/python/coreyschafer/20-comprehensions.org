@@ -37,7 +37,7 @@ Be sure to see the [[https://raw.githubusercontent.com/rileyrg/development-educa
      myl=[]
      for n in nums:
          myl.append(n)
-     print(myl)
+         print(myl)
    #+end_src
 
    #+RESULTS:
@@ -237,9 +237,10 @@ Be sure to see the [[https://raw.githubusercontent.com/rileyrg/development-educa
 #+RESULTS:
 : [0, 1, 4, 9, 16, 25, 36, 49, 64]
 
-** TODO comprehension
-   SCHEDULED: <2021-03-27 Sat>
+** DONE comprehension with generator
+   CLOSED: [2021-03-30 Tue 22:07] SCHEDULED: <2021-03-27 Sat>
    :LOGBOOK:
+   - State "DONE"       from "TODO"       [2021-03-30 Tue 22:07]
    - State "TODO"       from              [2021-03-27 Sat 11:50]
    :END:
    Note the use of the parenthesis for the generator constructor.

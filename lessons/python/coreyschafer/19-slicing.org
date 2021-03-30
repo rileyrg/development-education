@@ -99,9 +99,16 @@ Be sure to see the [[https://raw.githubusercontent.com/rileyrg/development-educa
     #+RESULTS:
     : [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 
-
-*** TODO continue from 7:36
-    SCHEDULED: <2021-03-28 Sun>
-    :LOGBOOK:
-    - State "TODO"       from              [2021-03-27 Sat 20:53]
-    :END:
+*** sample url
+    #+begin_src python
+      sample_url= 'http://coreyms.com'
+      print (sample_url)
+      # reverse
+      print(sample_url[::-1])
+      #top level domain
+      print(sample_url[-4::])
+      # url without Protocol
+      print(sample_url[7::])
+      # now without top level
+      print(sample_url[7:-4:])
+    #+end_src
