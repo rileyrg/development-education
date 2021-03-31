@@ -1,5 +1,6 @@
-from hellopackage.dog import Dog, DogPussy as Cat
-from hellopackage.dog import DogPussy
+"""This module does blah blah."""
+
+from hellopackage.dog import Dog, DogPussy, DogPussy as Cat
 
 x = 1
 
@@ -17,9 +18,10 @@ def sayhello(name):
 
 if __name__ == "__main__":
     print(sayhello("Richie"))
-    dennis = Dog("dennis")
-    dennis.bark()
     denise = Cat("denise")
     denise.bark()
     stella = DogPussy("stella")
     stella.bark()
+
+dennis = Dog("dennis")
+dennis.bark()
