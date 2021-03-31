@@ -1,0 +1,32 @@
+#+TITLE: python notes
+#+FILETAGS: :python:learning:
+#+STARTUP: overview
+#+
+#+PROPERTY: header-args:python  :results output :exports both :session "*python notes*"
+
+* __dict__
+
+** class dict
+   #+begin_src python
+     class CClass:
+         vc:int = 99
+         def __init__(self,v1:int,v2:int=2):
+           self.vi1=v1
+           self.vi2=v2
+     print(CClass.__dict__)
+   #+end_src
+
+   #+RESULTS:
+   : {'__module__': '__main__', '__annotations__': {'vc': <class 'int'>}, 'vc': 99, '__init__': <function CClass.__init__ at 0x7f6061eb6550>, '__dict__': <attribute '__dict__' of 'CClass' objects>, '__weakref__': <attribute '__weakref__' of 'CClass' objects>, '__doc__': None}
+
+
+** instance dict
+   #+begin_src python
+     print("""instantiating a "%s".""" % (CClass.__name__))
+     c=CClass(12)
+     print(c.__dict__)
+   #+end_src
+
+   #+RESULTS:
+   : instantiating a "CClass".
+   : {'vi1': 12, 'vi2': 2}

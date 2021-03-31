@@ -1,6 +1,6 @@
 """This module does blah blah."""
 
-from hellopackage import dog
+import hellopackage.dog
 
 x = 1
 

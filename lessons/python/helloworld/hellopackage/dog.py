@@ -4,10 +4,10 @@ from dataclasses import dataclass
 
 @dataclass
 class Dog:
-    "I'm A Dog"
+    "Woof! I'm A Dog"
 
     name: str
-    barksound: str = "woof"
+    barksound: str = "Woof! I'm A Dog"
 
     def bark(self):
         print("%s says %s " % (self.name, self.barksound))
@@ -16,19 +16,23 @@ class Dog:
 class DogBig(Dog):
     "Grrr, I'm a big dog."
 
-    def __init__(self, name):
-        super().__init__(name, barksound="Growl!")
+    def __init__(self, name: str, age: int = 21):
+        self.age = age
+        super().__init__(name, barksound="Grrr, I'm a big dog!")
+
+    def bark(self):
+        print("My name is %s and I'm %2d years old." % (self.name, self.age))
 
 
 class DogPussy(Dog):
     "Miaow, I'm non binary."
 
-    def __init__(self, name, snack="leckerlie"):
+    def __init__(self, name: str, snack: str = "leckerlie"):
         self.snack = snack
-        super().__init__(name, barksound="Miaow!")
+        super().__init__(name, barksound="Miaow, I'm non binary.")
 
     def bark(self):
-        print("%s is a DogPussy and its snack is %s" %
+        print("%s is a DogPussy and her snack is %s" %
               (self.name,  self.snack))
         super(DogPussy, self).bark()
 
