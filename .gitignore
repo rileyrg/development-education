@@ -4,14 +4,22 @@
 !*.org
 !*.md
 
-
 !lessons
 
 !lessons/python
 !lessons/python/*.org
 !lessons/python/*.md
+
 !lessons/python/coreyschafer
 !lessons/python/coreyschafer/*
+
+!lessons/python/helloworld/
+!lessons/python/helloworld/*.py
+!lessons/python/helloworld/hellopackage/
+!lessons/python/helloworld/hellopackage/*.py
+
+!lessons/python/python-lernen.de/
+!lessons/python/python-lernen.de/*.py
 
 !lessons/elisp
 !lessons/elisp/*.org

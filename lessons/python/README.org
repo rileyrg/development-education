@@ -1,6 +1,4 @@
-#+TITLE: Working Through Python Tutorials
-#+AUTHOR: Richard G. Riley
-#+title: Python Tutorial Workthroughs
+#+TITLE: Python Tutorials & Playground
 #+LANGUAGE: en
 #+STARTUP: overview
 
@@ -14,6 +12,8 @@
 # do not include task keywords in export
 #+OPTIONS: todo:nil
 
+* [[file:helloworld/main.py::from hellopackage.dog import Dog, DogPussy as Cat][HelloWorld]]
 
+* [[file:python-lernen.de/][Python-Lernen.de]]
 
 * [[file:coreyschafer/README.org][Corey Schafer Tutorials]]

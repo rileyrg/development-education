@@ -1,0 +1,100 @@
+#+FILETAGS: :python:education
+
+[[https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html][Using org-mode babel with python]]
+[[https://www.python-lernen.de][Learning Python (in German)]]
+
+* installation                                    :install:
+  https://www.python-lernen.de/python-installieren.htm
+** DONE version
+   CLOSED: [2021-03-15 Mon 09:10] SCHEDULED: <2021-03-15 Mon>
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2021-03-15 Mon 09:10]
+   - State "TODO"       from              [2021-03-15 Mon 09:08]
+   :END:
+   #+begin_src bash
+     echo "$(python --version)"
+   #+end_src
+
+   #+RESULTS:
+
+** DONE hallo welt
+   CLOSED: [2021-03-15 Mon 09:00]
+   :LOGBOOK:
+   - State "DONE"       from              [2021-03-15 Mon 09:00]
+   :END:
+   #+begin_src python :results output
+     print('Hallo Welt')
+   #+end_src
+
+   #+RESULTS:
+   : Hallo Welt
+
+** DONE idle                                                           :idle:
+   CLOSED: [2021-03-15 Mon 11:52] SCHEDULED: <2021-03-15 Mon>
+   :PROPERTIES:
+   :ID:       a86b5099-4fa9-46c9-94a2-ebe6d7d8cbce
+   :END:
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2021-03-15 Mon 11:52]
+   - State "TODO"       from "DONE"       [2021-03-15 Mon 11:03]
+   - State "DONE"       from "TODO"       [2021-03-15 Mon 09:13]
+   - State "TODO"       from              [2021-03-15 Mon 09:13]
+   :END:
+   https://www.python-lernen.de/python-idle.htm
+
+*** install                                                    :install:
+    #+begin_src python
+      sudo apt install idle3
+    #+end_src
+
+** DONE python command line
+   CLOSED: [2021-03-15 Mon 16:45] SCHEDULED: <2021-03-15 Mon>
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2021-03-15 Mon 16:45]
+   - State "TODO"       from              [2021-03-15 Mon 11:56]
+   :END:
+   https://www.python-lernen.de/python-befehle-ausfuehren.htm
+
+*** idle
+    #+begin_src bash :async :results none
+      idle
+    #+end_src
+
+    #+RESULTS:
+
+*** hallowelt
+
+    [[file:hallowelt.py][file:~/development/projects/Python/python-lernen.de/hallowelt.py]]
+
+    #+name:pynteractive
+    #+begin_src bash :var pfile="hallowelt.py" :results output
+      python -i "${pfile}"
+    #+end_src
+
+    #+RESULTS: pynteractive
+    : Hallo Welt
+    : 16
+
+    #+call: pynteractive("hallowelt2.py")
+
+    #+RESULTS:
+    : Hallo Welt2
+    : 16
+
+** DONE Online-Lern-Editor zum schnellen Lernen und Verstehen von Python
+   CLOSED: [2021-03-15 Mon 16:46]
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2021-03-15 Mon 16:46]
+   - State "TODO"       from              [2021-03-15 Mon 16:46]
+   :END:
+   http://pythontutor.com/live.html
+   http://pythontutor.com/visualize.html#mode=edit
+
+   [[http://pythontutor.com/live.html#code=print%28%22Hallo%20Welt%22%29%0Akursname%20%3D%22https%3A//https%3A//www.python-lernen.de/python-online-lern-editor.htm%22%0A&cumulative=false&curInstr=2&heapPrimitives=nevernest&mode=display&origin=opt-live.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false][live edit link]]
+
+** DONE python online docs
+   CLOSED: [2021-03-15 Mon 19:59]
+   :LOGBOOK:
+   - State "DONE"       from              [2021-03-15 Mon 19:59]
+   :END:
+   https://docs.python.org/3/library/

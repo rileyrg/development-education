@@ -1,0 +1,1452 @@
+#-*- coding:utf-8 -*-
+
+* https://www.python-lernen.de/python-grundlagen.htm
+* ausgaben über print()
+  https://www.python-lernen.de/ausgabebefehl-print.htm
+  #+begin_src python :results output
+    print("Zzzz")
+    print("")
+    print("YYYY")
+  #+end_src
+
+  #+RESULTS:
+  : Zzzz
+  :
+  : YYYY
+** Sonderfall Backslash
+   #+begin_src python :results output
+     print("c:\niederlands")
+     print("")
+     print("c:\\home")
+   #+end_src
+
+   #+RESULTS:
+   : c:
+   : iederlands
+   :
+   : c:\home
+
+
+** Ausgabe mit print(r)
+   #+begin_src python :results output
+     print(r"C:\niedlicherverzeichnisname")
+   #+end_src
+
+   #+RESULTS:
+   : C:\niedlicherverzeichnisname
+
+** Mehrere Umbrüche bei der Ausgabe
+   #+begin_src python :results output
+     print("""hallo
+     welt
+     in three lines""")
+   #+end_src
+
+   #+RESULTS:
+   : hallo
+   : welt
+   : in three lines
+
+
+* Variablen in Python einsetzen
+  #+begin_src python :results output
+    strasse = 'Ku'damm'
+    print(strasse)
+  #+end_src
+
+  #+RESULTS:
+
+  #+begin_src python :results output
+    strasse = 'Ku\'damm'
+    print(strasse)
+  #+end_src
+
+  #+RESULTS:
+  : Ku'damm
+
+  #+begin_src python
+    #!/usr/bin/python
+    #-*- coding:utf-8 -*-
+    macbethtext = """Schön ist häßlich, häßlich schön.
+    Wir weichen wie Wolken und Windeswehn"""
+    print(macbethtext)
+  #+end_src
+
+  #+RESULTS:
+
+  #+begin_src python
+    macbethtext = '''Schön ist häßlich, häßlich schön. Wir weichen wie Wolken und Windeswehn'''
+    print(macbethtext)
+  #+end_src
+
+  #+RESULTS:
+  : None
+
+  #+begin_src bash :var file="non-ascii.py"
+    python $file
+  #+end_src
+
+  #+RESULTS:
+  | Schön | ist     | häßlich, | häßlich | schön. |            |
+  | Wir   | weichen | wie      | Wolken  | und    | Windeswehn |
+
+
+** DONE non asciis errors
+   CLOSED: [2021-03-15 Mon 21:51] SCHEDULED: <2021-03-15 Mon>
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2021-03-15 Mon 21:51]
+   - State "TODO"       from              [2021-03-15 Mon 21:51]
+   :END:
+   ,----
+   |    SyntaxError: Non-ASCII character '\xc3' in file <stdin> on line 5, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+   `----
+
+* Funktionen und Methoden bei Variablen/Strings
+  https://www.python-lernen.de/unterschied-methoden-funktionen.htm
+
+** Funktionen bei Variablen
+   #+begin_src python :results output
+     kursname = 'Python-lernen.de'
+     print(kursname)
+   #+end_src
+
+   #+RESULTS:
+   : Python-lernen.de
+
+   #+begin_src python :results output
+     kursname = 'Python-lernen.de'
+     print(len(kursname))
+   #+end_src
+
+   #+RESULTS:
+   : 16
+
+** Methoden bei Variablen/Strings
+   #+begin_src python :results output
+     kursname = 'www.Python-lernen.de'
+     print("%s" % kursname.lower())
+   #+end_src
+
+   #+RESULTS:
+   : www.python-lernen.de
+
+   #+begin_src python
+     kursname = 'www.Python-lernen.de'
+     print(kursname.lower())
+     print(kursname)
+   #+end_src
+
+   #+RESULTS:
+   : www.python-lernen.de
+   : www.Python-lernen.de
+
+** Leerzeichen am Anfang entfernen über lstrip()
+   #+begin_src python
+     inhalt = "   Python rocks    "
+     ausgabe = inhalt.lstrip()
+     print(ausgabe + ", daher www.Python-lernen.de")
+   #+end_src
+
+   #+RESULTS:
+   : Python rocks    , daher www.Python-lernen.de
+
+** Leerzeichen am Anfang und Ende entfernen über strip()
+   #+begin_src python
+     inhalt = "   Python rocks    "
+     ausgabe = inhalt.lstrip()
+     print(ausgabe + ", daher www.Python-lernen.de           ")
+   #+end_src
+
+   #+RESULTS:
+   : Python rocks    , daher www.Python-lernen.de
+
+** beliebige Zeichen entfernen durch strip()
+   #+begin_src python
+     inhalt = "1.) https://www.python-lernen.de  "
+     ausgabe = inhalt.strip('1')
+     print(ausgabe)
+   #+end_src
+
+   #+RESULTS:
+   : .) https://www.python-lernen.de
+
+** Parameter nutzen: Beliebige Zeichen, die entfernt werden
+
+   Es ist möglich mehrere Zeichen einzugeben, die entfernt werden sollen.
+
+   #+begin_src python
+     inhalt = "   Python 3 rocks 1233 4444"
+     ausgabe = inhalt.rstrip('1234 ?XYZ')
+     print(ausgabe + ", daher www.Python-lernen.de")
+   #+end_src
+
+   #+RESULTS:
+   :    Python 3 rocks, daher www.Python-lernen.de
+
+** Entfernen von Zeilenumbruch, Newline \r\n mit Python
+
+   #+begin_src python
+     inhalt = " Python rocks \n \r\n "
+     ausgabe = inhalt.rstrip('')
+     print(ausgabe + ", damit sichtbar wird, was gelöscht wurde")
+   #+end_src
+
+   #+RESULTS:
+   :  Python rocks
+   :
+   :  , damit sichtbar wird, was gelöscht wurde
+
+   #+begin_src python
+     inhalt = " Python rocks \n \r\n "
+     ausgabe = inhalt.rstrip('\n ')
+     print(ausgabe + ", damit sichtbar wird, was gelöscht wurde")
+   #+end_src
+
+   #+RESULTS:
+   :  Python rocks
+   :  , damit sichtbar wird, was gelöscht wurde
+
+** Linksbündig ausgeben, rechts auffüllen mit Zeichen: ljust()
+   #+begin_src python
+     inhalt = "Vier"
+     ausgabe = inhalt.ljust(10)
+     print(ausgabe)
+   #+end_src
+
+   #+RESULTS:
+   : Vier
+   #+begin_src python
+     inhalt = "Vier"
+     ausgabe = inhalt.rjust(10)
+     print(ausgabe, "mehr Text")
+   #+end_src
+
+   #+RESULTS:
+   :       Vier mehr Text
+
+** Zentrierte Ausgabe über .center()
+   #+begin_src python
+     inhalt = "mittig"
+     print( inhalt.center(12,"^") )
+   #+end_src
+
+   #+RESULTS:
+   : ^^^mittig^^^
+
+** Führende 0 am Anfang auffüllen über .zfill()
+   #+begin_src python
+     text = "20"
+     print(text.zfill(8))
+   #+end_src
+
+   #+RESULTS:
+   : 00000020
+
+** aggressive Umwandlung in Kleinbuchstaben .casefold()
+
+   #+begin_src python
+     text = "Inhalt mit Umlauten: ÄÖÜß"
+     print("Originaltext:")
+     print(text)
+     print()
+     print("Umwandlung durch lower:")
+     print(text.lower())
+     print()
+     print("Umwandlung durch casefold:")
+     print(text.casefold())
+   #+end_src
+
+   #+RESULTS:
+   : Originaltext:
+   : Inhalt mit Umlauten: ÄÖÜß
+   :
+   : Umwandlung durch lower:
+   : inhalt mit umlauten: äöüß
+   :
+   : Umwandlung durch casefold:
+   : inhalt mit umlauten: äöüss
+
+** Lösung Palindrom mit casefold()
+
+   #+begin_src python
+     text = "Rentner"
+     text = text.casefold()
+     rueckwarts = reversed(text)
+     print(text)
+     print(rueckwarts)
+   #+end_src
+
+   #+RESULTS:
+   : rentner
+   : <reversed object at 0x7fac737670a0>
+
+   #+begin_src python
+     text = "Rentner"
+     text = text.casefold()
+     rueckwarts = ''.join (reversed(text))
+     print(rueckwarts)
+   #+end_src
+
+   #+RESULTS:
+   : rentner
+
+   #+begin_src python
+     text = "Rentner"
+     text = text.casefold()
+     rueckwarts = ''.join (reversed(text))
+
+     if text == rueckwarts:
+         print(text, " ist ein Palindrom")
+     else:
+         print("KEIN Palindrom")
+   #+end_src
+
+   #+RESULTS:
+   : rentner  ist ein Palindrom
+
+** quick elpy test
+   #+begin_src python
+     def quadrieren(zahl):
+         """Return the square of the number."""
+         print(zahl*zahl)
+
+     str1="Hel O o "
+     print(str1.casefold())
+
+   #+end_src
+
+   #+RESULTS:
+   : hel o o
+
+** Groß- und Kleinschreibung wird vertauscht: swapcase()
+   #+begin_src python
+     vornachname = "Rolf von und zu Maier-Müller"
+     umgewandelt = vornachname.swapcase()
+     print(umgewandelt)
+   #+end_src
+
+   #+RESULTS:
+   : rOLF VON UND ZU mAIER-mÜLLER
+
+** Zeichen ersetzen/austauschen mit Python: String
+   Bei der Arbeit mit Strings ist es oft notwendig, Zeichenketten bzw. Teile des Inhalts auszutauschen. Python bietet mit der Funktion variable.replace("alt", "neu") eine einfache Möglichkeit. Die Funktion zum Austauschen bzw. Ersetzen von Zeichenfolgen
+   ist nicht auf einzelne Buchstaben begrenzt. Im folgenden Beispiel wollen wir in dem String alle DM durch Euro ersetzen (wenn das auch schon ein paar Tage her ist).
+   #+begin_src python
+     ausgabetext = "Der Preis für 2 Socken beträgt 5 DM und 5 Paar kosten 10 DM"
+     print(ausgabetext)
+     ausgabetext = ausgabetext.replace("DM", "Euro")
+     print("Nach dem Austauschen über replace():")
+     print(ausgabetext)
+   #+end_src
+
+   #+RESULTS:
+   : Der Preis für 2 Socken beträgt 5 DM und 5 Paar kosten 10 DM
+   : Nach dem Austauschen über replace():
+   : Der Preis für 2 Socken beträgt 5 Euro und 5 Paar kosten 10 Euro
+
+** Parameter von replace('x', 'y', [Anzahl])
+   #+begin_src python
+     ausgabetext = "Der Preis für 2 Socken beträgt 2 DM und 2 Paar kosten 3.50 DM"
+     ausgabetext = ausgabetext.replace("DM", "Euro")
+     ausgabetext = ausgabetext.replace("2", "zwei", 1)
+     print("Nach dem Austauschen über replace():")
+     print(ausgabetext)
+   #+end_src
+
+   #+RESULTS:
+   : Nach dem Austauschen über replace():
+   : Der Preis für zwei Socken beträgt 2 Euro und 2 Paar kosten 3.50 Euro
+
+
+** Mehrere Ersetzungen durchführen
+
+   Bei der Methode replace() können wir nur eine Ersetzung mitgeben. Was aber, wenn mehrere Ersetzungen gewünscht sind. In unserem Beispiel sollen die Zahl 1,2 und 3 ausgeschrieben werden. Es soll also jede „1“ durch „eins“ und jede „2“ durch „zwei“ und jede „3“ durch „drei“ ersetzt werden. Welche Möglichkeiten haben wir dafür?
+
+   #+begin_src python
+     ausgabetext = "1 1 2 2 3 3 4 4"
+     ausgabetext = ausgabetext.replace("1", "eins")
+     ausgabetext = ausgabetext.replace("2", "zwei")
+     ausgabetext = ausgabetext.replace("3", "drei")
+     print("Nach dem Austauschen über replace():")
+     print(ausgabetext)
+   #+end_src
+
+   #+RESULTS:
+   : Nach dem Austauschen über replace():
+   : eins eins zwei zwei drei drei 4 4
+
+** zweite Variante für mehrfache Ersetzungen
+   #+begin_src python
+     ausgabetext = "1 1 2 2 3 3 4 4"
+     ausgabetext = ausgabetext.replace("1","eins").replace("2","zwei").replace("3","drei")
+     print("Nach dem Austauschen über replace():")
+     print(ausgabetext)
+   #+end_src
+
+   #+RESULTS:
+   : Nach dem Austauschen über replace():
+   : eins eins zwei zwei drei drei 4 4
+
+
+** Zählen von bestimmten Vorkommen über die String-Methode .count()
+   #+begin_src python
+     inhalt = "Hier kommt ein String-Inhalt"
+     print ( inhalt.count("i") )
+   #+end_src
+
+   #+RESULTS:
+   : 3
+
+** Wir können auch nach mehr als einem Buchstaben suchen. Natürlich gehen ganze Wörter oder auch Wortteile wie z.B. „in“.
+
+   #+begin_src python
+     inhalt = "Hier kommt ein String-Inhalt"
+     print ( inhalt.count("in") )
+   #+end_src
+
+   #+RESULTS:
+   : 2
+
+   Bei dem Wort „Inhalt“ haben wir ein weiteres „in“, das allerdings mit Großschreibung beginnt. Mit der Großschreibung wird es allerdings nicht gefunden, sprich das „In“ von dem Wort „Inhalt“ wurde nicht gefunden und somit auch nicht mitgezählt. Es gibt bei der Methode .count() keinen optionalen Parameter, aber ein die entsprechende Methode zur Umwandlung in Kleinbuchstaben haben wir bereits kennengelernt, mit der wir dies erreichen.
+
+   Gemeint ist die Methode .lower(). Hier unser Beispiel in Teilschritten:
+
+   #+begin_src python
+     inhalt = "Hier kommt ein String-Inhalt"
+     kleinbuchstaben = inhalt.lower()
+     print ( kleinbuchstaben )
+     print ( kleinbuchstaben.count("in") )
+   #+end_src
+
+   #+RESULTS:
+
+
+** Wollen wir nur innerhalb der ersten 15 Zeichen den String überprüfen lassen, können wir dies über die optionalen Parameter für den Bereich (also Anfangspunkt und Endpunkt) erreichen:
+
+   #+begin_src python
+     inhalt = "Hier kommt ein String-Inhalt"
+     print ( inhalt.count("in", 0, 15) )
+   #+end_src
+
+   #+RESULTS:
+   : 1
+
+   Es wird dann nur der Teil des Strings mit dem Inhalt „Hier kommt ein“ ausgewertet und dort wird dann einmal der gesuchte Teilstring „in“ gefunden im letzten Wort „ein“.
+
+** DONE erstes Vorkommen bestimmen über die String-Methode .find()
+   CLOSED: [2021-03-16 Tue 23:28]
+   :LOGBOOK:
+   - State "DONE"       from              [2021-03-16 Tue 23:28]
+   :END:
+   Wollen wir das erste Vorkommen bestimmen, können wir die Methode find() nutzen:
+
+   #+begin_src python
+     inhalt = "Hier kommt ein String-Inhalt"
+     print ( inhalt.find("e") )
+   #+end_src
+
+   #+RESULTS:
+   : 2
+
+   Wollen wir das nächste Vorkommen von „e“ finden, können wir den Start mitgeben als weitere Parameter:
+
+   #+begin_src python
+     inhalt = "Hier kommt ein String-Inhalt"
+     print ( inhalt.find("e", 3) )
+   #+end_src
+
+   #+RESULTS:
+   : 11
+
+** TODO Bereiche können auch definiert werden. Wird die letzte Zahl negativ angegeben, erfolgt die Zählung von hinten:
+   :LOGBOOK:
+   - Note taken on [2021-03-16 Tue 23:28] \\
+     cant figure this out at all
+   - State "TODO"       from              [2021-03-16 Tue 23:28]
+   :END:
+
+   #+begin_src python
+     inhalt = "Hier kommt ein String-Inhalti"
+     print ( inhalt.find("i", 2,-10) )
+   #+end_src
+
+   #+RESULTS:
+   : 12
+
+** COMMENT String auf Bedingungen testen
+
+   https://www.python-lernen.de/string-methoden-uebersicht-is.htm
+
+   ,----
+   | string.isalnum()	Überprüft auf alphanumerische Zeichen (a-zA-Z0-9). Leerzeichen ist kein alphanumerisches Zeichen!
+   | string.isalpha()	Überprüft auf alphabetische Zeichen (a-zA-Z). Leerzeichen ist kein alphanumerisches Zeichen!
+   | string.isdecimal()	Überprüft auf Zahlen – wenn alle Zeichen Dezimalzahlen sind, wird True zurückgeliefert
+   | string.isdigit()	Überprüft auf Numerische und digitale Zeichen z.B. ‚123‘ oder '3\u00B2' (was 3 hoch 2 entspricht!)
+   | string.isidentifier()	Ob ein Identifier vorliegt (siehe https://docs.python.org/3.3/reference/lexical_analysis.html#identifiers)
+   | string.islower()	Überprüft, ob alles in Kleinschreibung vorliegt
+   | string.isnumeric()	Überprüft auf numerische Zeichen (z.B. 1/2, 3hoch2 etc.)
+   | string.isprintable()	Überprüft, ob Druckbar ist
+   | string.isspace()	Überprüft, ob nur Leerzeichen (u.ä.) vorhanden sind
+   | string.istitle()	Überprüft, ob es sich um eine Überschrift handelt
+   | string.isupper()	Überprüft, ob alles in Großschreibung vorliegt
+   `----
+
+   #+begin_src python
+     inhalt = "Beispieltext"
+     ergebnis = inhalt.isalnum()
+     print(ergebnis)
+
+   #+end_src
+
+   #+RESULTS:
+   : True
+
+   Sobald Leerzeichen vorkommen, sind nicht mehr alle Zeichen alphanumerisch und somit kommt beim folgenden Beispiel False zurück:
+
+   #+begin_src python
+     inhalt = "Beispieltext mit Leerzeichen"
+     ergebnis = inhalt.isalnum()
+     print(ergebnis)
+   #+end_src
+
+   #+RESULTS:
+   : False
+
+
+   Und hier mit Zahl und somit trifft es nicht zu:
+
+   #+begin_src python
+     inhalt = "abc123"
+     ergebnis = inhalt.isalpha()
+     print(ergebnis)
+   #+end_src
+
+   #+RESULTS:
+   : False
+
+** Aufteilen von einem String in eine Liste .split()
+
+   Oft liegen uns Daten vor, die durch Komma getrennt sind. Beispielsweise ein Export von Excel im Format CSV (englisch „comma separated values“).
+
+   Diesen String können wir einfach „aufspalten“ über split()
+
+   Die Methode split(Trennzeichen, Anzahl_Aufteilungen_maximal) hat 2 Parameter, die beide Optional sind. Schauen wir uns den ersten Parameter an. Über diesen geben wir das gewünschte Trennzeichen mit.
+
+   #+begin_src python
+     daten = "vorname, nachname, alter"
+     einzeldaten = daten.split(",")
+     print(einzeldaten)
+   #+end_src
+
+   #+RESULTS:
+   : ['vorname', ' nachname', ' alter']
+
+
+   Wenn man allerdings sicher weiß, dass immer im Ausgangsmaterial nach dem Komma ein Leerzeichen kommt, kann man dies auch als Parameter nutzen! Der Parameter kann also aus einer beliebigen Zeichenkombination bestehen. Wir übergeben der Methode bei unserem Beispiel neben dem Komma auch das Leerzeichen:
+
+   #+begin_src python
+     daten = "vorname, nachname,alter"
+     einzeldaten = daten.split(", ")
+     print(einzeldaten)
+   #+end_src
+
+   #+RESULTS:
+   : ['vorname', 'nachname,alter']
+
+** erste Parameter bei split()
+   Bei der Methode split() sind zwei Parameter möglich und beide sind optional! Im letzten Beispiel haben wir als ersten Parameter das gewünschte Trennzeichen vorgegeben. Diese Angabe können wir auch weglassen. Schauen wir uns an, was passiert, wenn wir das letzte Beispiel ohne Parameter ausführen lassen. Wir ändern nichts am Beispiel außer bei split()
+
+   #+begin_src python
+     daten = "vorname, nachname, alter"
+     einzeldaten = daten.split()
+     print(einzeldaten)
+   #+end_src
+
+   #+RESULTS:
+   : ['vorname,', 'nachname,', 'alter']
+
+** zweiter Parameter: Anzahl_Aufteilungen_maximal
+   Beim zweiten Parameter von split(Trennzeichen, Anzahl_Aufteilungen_maximal) können wir festlegen, wie viele Aufteilungen wir gerne maximal bekommen möchten. Wird nichts angegeben (was dem Standard von -1 entspricht) erhalten wir alle möglichen. Wären 2 möglich (wie bei unseren vorherigen Beispielen) und wir geben 1 an, erhalten wir auch nur noch eine Aufsplittung:
+
+   #+begin_src python
+     daten = "vorname,nachname,alter"
+     einzeldaten = daten.split(",", 1)
+     print(einzeldaten)
+   #+end_src
+
+   #+RESULTS:
+   : ['vorname', 'nachname,alter']
+
+** Anzahl Wörter in einem Text über split()
+   Über die Methode split() ist es sehr einfach, die Anzahl der Wörter in einem Text zu bestimmen. Wir wissen, dass Leerzeichen die Trennung zwischen Wörtern in einem Text darstellen. Also nutzen wir das Leerzeichen als Trennzeichen in split() und können danach über len() die Anzahl der Elemente (sprich Wörter) zählen.
+
+   #+begin_src python
+     inhalt = "Anzahl Wörter in einem Text zählen!"
+     woerter = inhalt.split()
+     print("Anzahl der Wörter: ", len(woerter))
+   #+end_src
+
+   #+RESULTS:
+   : Anzahl der Wörter:  6
+
+** „Endet mit“-Methode: Strings auf Suffix überprüfen mit .endswith()
+
+   #+begin_src python
+     inhalt = "https://www.python-lernen.de"
+     ergebnis = inhalt.endswith(".de")
+     print(ergebnis)
+   #+end_src
+
+   #+RESULTS:
+   : True
+
+
+** Anfangs- und Endposition einsetzen
+   Je nach Fall ist es manchmal geschickt, die Anfangs- und Endposition für die Überprüfung festzulegen. Geben wir hier 28 als Ende an, bekommen wir weiterhin „True“ zurück, da unser String 28 Zeichen lang ist.
+
+   #+begin_src python
+     inhalt = "https://www.python-lernen.de"
+     ergebnis = inhalt.endswith(".de", 10, 40)
+     print(ergebnis)
+   #+end_src
+
+   #+RESULTS:
+   : True
+
+** Mehrere Fälle überprüfen
+   Diese Methode kann auch mit Tupel’s eingesetzt werden. Hört sich kompliziert an, ist aber in der Praxis sehr einfach und wird öfters benötigt. Was ist ein Tupel? Ein Tupel ist eine Wertesammlung.
+
+   Nehmen wir an, wir wollen unseren String überprüfen, ob die URL mit einer dieser Endungen endet:
+
+   #+begin_src python
+     inhalt = "https://www.python-lernen.de"
+     datentyp_tupel = (".de", ".com", ".net")
+     ergebnis = inhalt.endswith(datentyp_tupel)
+     print(ergebnis)
+   #+end_src
+
+   #+RESULTS:
+   : True
+
+** Beginnt mit“-Methode: Stringanfang überprüfen mit .startswith()
+   #+begin_src python
+     inhalt = "https://www.python-lernen.de"
+     ergebnis = inhalt.startswith("https://")
+     print(ergebnis)
+   #+end_src
+
+** Mehrere Fälle überprüfen mit .startswith()
+   #+begin_src python
+     inhalt = "http://www.python-lernen.net"
+     urlanfang_als_tupel = ("https://", "http://")
+     ergebnis = inhalt.startswith(urlanfang_als_tupel)
+     print(ergebnis)
+   #+end_src
+
+   #+RESULTS:
+
+   : True
+
+
+** Python String Methode .expandtabs() zum Umwandeln von Tabs in Leerzeichen
+   Über die Methode expandtabs() werden alle in einem Strings enthaltene Tabs (\t) in Leerzeichen umgewandelt. Es werden 8 Leerzeichen für einen Tab genutzt, sofern man keine andere Angabe als Parameter mitgibt:
+
+
+   #+begin_src python
+     inhalt = "Textinhalt\t1234567890\tmehr Inhalt"
+     ergebnis = inhalt.expandtabs()
+     print(ergebnis)
+
+     print(ergebnis.casefold())
+   #+end_src
+
+   #+RESULTS:
+   : Textinhalt      1234567890      mehr Inhalt
+   : textinhalt      1234567890      mehr inhalt
+
+** Parameter bei expandtabs()
+   Über den Parameter kann man die gewünschte Anzahl an Tabs angeben, wenn man eine andere Anzahl als 8 (was der Standardeinstellung entspricht), gerne hätte.
+
+   Beispiele:
+
+   #+begin_src python
+     inhalt = "Textinhalt\t1234567890\tmehr Inhalt"
+     print("01234567890123456789012345678901234567890123456789")
+     print(inhalt.expandtabs(), " (Standardeinstellung  8)\n")
+
+     print("01234567890123456789012345678901234567890123456789")
+     print(inhalt.expandtabs(2), " (Tabstopp bei 2)\n")
+
+     print("01234567890123456789012345678901234567890123456789")
+     print(inhalt.expandtabs(3), " (Tabstopp bei 3)\n")
+
+     print("01234567890123456789012345678901234567890123456789")
+     print(inhalt.expandtabs(4), " (Tabstopp bei 4)\n")
+
+     print("01234567890123456789012345678901234567890123456789")
+     print(inhalt.expandtabs(5), " (Tabstopp bei 5)\n")
+
+     print("01234567890123456789012345678901234567890123456789")
+     print(inhalt.expandtabs(6), " (Tabstopp bei 6)\n")
+
+     print("01234567890123456789012345678901234567890123456789")
+     print(inhalt.expandtabs(7), " (Tabstopp bei 7)\n")
+
+     print("01234567890123456789012345678901234567890123456789")
+     print(inhalt.expandtabs(8), " (Tabstopp bei 8)\n")
+
+     print("01234567890123456789012345678901234567890123456789")
+     print(inhalt.expandtabs(9), " (Tabstopp bei 9)\n")
+
+     print("01234567890123456789012345678901234567890123456789")
+     print(inhalt.expandtabs(10), " (Tabstopp bei 10)\n")
+   #+end_src
+
+   #+RESULTS:
+   #+begin_example
+   01234567890123456789012345678901234567890123456789
+   Textinhalt      1234567890      mehr Inhalt  (Standardeinstellung  8)
+
+   01234567890123456789012345678901234567890123456789
+   Textinhalt  1234567890  mehr Inhalt  (Tabstopp bei 2)
+
+   01234567890123456789012345678901234567890123456789
+   Textinhalt  1234567890  mehr Inhalt  (Tabstopp bei 3)
+
+   01234567890123456789012345678901234567890123456789
+   Textinhalt  1234567890  mehr Inhalt  (Tabstopp bei 4)
+
+   01234567890123456789012345678901234567890123456789
+   Textinhalt     1234567890     mehr Inhalt  (Tabstopp bei 5)
+
+   01234567890123456789012345678901234567890123456789
+   Textinhalt  1234567890  mehr Inhalt  (Tabstopp bei 6)
+
+   01234567890123456789012345678901234567890123456789
+   Textinhalt    1234567890    mehr Inhalt  (Tabstopp bei 7)
+
+   01234567890123456789012345678901234567890123456789
+   Textinhalt      1234567890      mehr Inhalt  (Tabstopp bei 8)
+
+   01234567890123456789012345678901234567890123456789
+   Textinhalt        1234567890        mehr Inhalt  (Tabstopp bei 9)
+
+   01234567890123456789012345678901234567890123456789
+   Textinhalt          1234567890          mehr Inhalt  (Tabstopp bei 10)
+
+   #+end_example
+
+** Die Methode partition() erhalt als Parameter den Suchtext, anhand der komplette String zerlegt werden soll.
+
+   Wir bekommen 3 Teile als Rückgabewerte:
+
+   alles vor dem Suchtext
+   den Suchtext
+   alles nach dem Suchtext
+   Schauen wir es am Beispiel an. Wir haben den Satz „Python ist einfach zu lernen“. Jetzt wollen wir diesen Text zerlegen, und zwar bei dem Wort „ist“.
+
+   #+begin_src python
+     satz = "Python ist einfach zu lernen"
+     ergebnis = satz.partition("ist")
+     print(ergebnis)
+   #+end_src
+
+   #+RESULTS:
+   : ('Python ', 'ist', ' einfach zu lernen')
+
+** Suchtext öfters vorhanden – was passiert?
+   Was passiert nun eigentlich, wenn unser Suchtext öfters vorhanden ist? Erweitern wir unseren Satz auf: „Python ist einfach zu lernen und ist cool“.
+
+   #+begin_src python
+     satz = "Python ist einfach zu lernen und ist cool"
+     ergebnis = satz.partition("ist")
+     print(ergebnis)
+   #+end_src
+
+   #+RESULTS:
+   : ('Python ', 'ist', ' einfach zu lernen und ist cool')
+
+   Im Ergebnis sieht man schön, dass nur das erste Auftreten des Suchtextes berücksichtigt wird. Das zweite „ist“ in unserem Beispiel endet im dritten Rückgabewert des Tupels.
+
+** Zusammenfügen von Zeichenketten über join()
+   Die Methode join() ist extrem hilfreich, um Zeichenketten zusammenzufügen. Wir erhalten als Rückgabe ein String. Was sich so beiläufig anhört, ist extrem wichtig. Denn wir können join() mit verschiedenen Datentypen „füttern“ und bekommen eine Zeichenkette zurück!
+
+   Beispiel: Einsatz von join() mit dem Datentyp Liste
+
+   #+begin_src python
+     wortliste = ['Axel', 'Elke', 'Martin']
+     trennzeichen = '#'
+     ergebnis = trennzeichen.join(wortliste)
+     print(ergebnis)
+   #+end_src
+
+   Die Nutzung von join() ist anhand von dem Datentyp Listen einfacher verständlich und die Mächtigkeit der Methode schnell klar. Es funktioniert genauso mit Zeichenketten („Strings“). Allerdings wird jedes Zeichen des Textes getrennt durch das Trennzeichen vom nächsten Zeichen:
+
+   #+begin_src python
+     zeichenkette = "abcd"
+     trennzeichen = '#'
+     ergebnis = trennzeichen.join(zeichenkette)
+     print(ergebnis)
+   #+end_src
+
+   #+RESULTS:
+   : a#b#c#d
+
+** beliebige Anzahl von Trennzeichen
+   Dabei kann auch mehr als 1 Trennzeichen angegeben werden. Die Nutzung von trennzeichen = ' #123# ' führt beispielsweise zu „Axel #123# Elke #123# Martin“.
+
+   #+begin_src python
+     wortliste = ['Axel', 'Elke', 'Martin']
+     trennzeichen = ' #123# '
+     ergebnis = trennzeichen.join(wortliste)
+     print(ergebnis)
+   #+end_src
+
+   #+RESULTS:
+   : Axel #123# Elke #123# Martin
+
+** Datentyp Dictionary und Fallstricke bei join()
+   Der Datentyp Dictionary (auf deutsch „Wörterbuch“ bzw. assoziative Liste) kann als Inhalte sowohl Strings wie Werte haben. Besteht das Wörterbuch nur aus Strings, haben wir kein Problem. Wichtig ist nur zu wissen, dass immer bei dem Datentyp Dictionary der „key“ verwendet wird.
+
+   #+begin_src python
+     deutschenglisch = { 'null': 'zero', 'eins': 'one' }
+     trennzeichen = '#'
+     print(trennzeichen.join(deutschenglisch))
+   #+end_src
+
+   #+RESULTS:
+   : null#eins
+
+   Ist der Inhalt allerdings numerisch, bekommen wir eine Fehlermeldung!
+
+   #+begin_src python
+     woerterbuch = {0: 'null', 1: 'eins' }
+     trennzeichen = '#'
+     print(trennzeichen.join(woerterbuch))
+   #+end_src
+
+   #+RESULTS:
+
+** Operatoren für Strings
+
+   https://www.python-lernen.de/operatoren-strings.htm
+
+   Lustigerweise kann man in Python auch mit Operatoren (+-*/) auf Zeichenkettenausgaben losgehen. Was passiert, wenn man folgende Anweisung schreibt?
+
+   #+begin_src python
+     print( 3 * 'mi' );
+   #+end_src
+
+   #+RESULTS:
+   : mimimi
+
+   Ein Operator ist eine mathematische Vorschrift. So steht das „*“ wie üblich in der Mathematik für die Multiplikation – wenden wir diese Multiplikation in Python auf einen Text an, wird dieser entsprechend oft wiederholt.
+
+   Anmerkung am Rande – wem "mimimi" nichts sagt, unbedingt die Videos der Muppets ansehen unter https://www.youtube.com/watch?v=VnT7pT6zCcA.
+
+   Jetzt können wir auch noch dahinter ein Plus packen:
+
+   #+begin_src python
+     print( 3 * 'mi' + 'mo' );
+   #+end_src
+
+   #+RESULTS:
+   : mimimimo
+
+   Gibt man 2 Strings hintereinander an:
+
+   #+begin_src python
+     print( 'mi' 'mo' );
+   #+end_src
+
+   #+RESULTS:
+   : mimo
+
+   Werden bei zusammen hintereinander ausgegeben. Im Vergleich zu anderen Programmiersprachen benötigen wir kein zusätzliches Zeichen, um mehrere Zeichenketten miteinander zu verketten. In JavaScript würde man mit einem Pluszeichen arbeiten, in PHP mit einem Punkt verketten. Python macht es einfacher.
+
+   Allerdings funktioniert das bei 2 Variablen nicht und es gibt eine Fehlermeldung. Versucht man bei Variablen folgende Programm:
+
+   #+begin_src python
+     variable1 = "ich"
+     variable2 = "du"
+     print( variable1 variable2 )
+   #+end_src
+
+   #+RESULTS:
+
+** Beispielanwendung: Funktionsgrafen ausgeben ohne Grafik
+
+   Natürlich kann man sich fragen, wofür man die Wiederholung von Ausgaben benutzen könnte. Eine einfache (und manchmal ausreichende) Variante ist die Ausgabe einer Kurve.
+
+   Im Folgendem ein kleines Beispiel: Nicht besonders schön programmiert, aber es funktioniert. Schöner geht es dann, wenn wir im Kurs Schleifen kennengelernt haben.
+
+   #+begin_src python
+     print( 'Ausgabe Kurve ohne Grafik' );
+
+     print( 3 * '*' );
+     print( 5 * '*' );
+     print( 8 * '*' );
+     print( 9 * '*' );
+     print( 10 * '*' );
+     print( 9 * '*' );
+     print( 8 * '*' );
+     print( 5 * '*' );
+     print( 3 * '*' );
+   #+end_src
+
+   #+RESULTS:
+   #+begin_example
+   Ausgabe Kurve ohne Grafik
+   ,***
+   ,*****
+   ,********
+   ,*********
+   ,**********
+   ,*********
+   ,********
+   ,*****
+   ,***
+   #+end_example
+
+** Listen in Python – viele Inhalte geordnet speichern
+   Wir haben mit Variablen die Möglichkeit kennen gelernt, in einem Platzhalter (sprich die Variable) Inhalt zu speichern. Allerdings kann jede Variable nur einen Inhalt haben. Das kann je nach Fall unpraktisch werden.
+
+   Wenn man sich vorstellt, dass man ein Telefonbuch in Variablen speichern möchte, dann hätte man wilde Konstruktionen wie:
+
+   #+begin_src python
+     vorname1 = 'Axel'
+     vorname2 = 'Elke'
+     vorname3 = 'Martin'
+   #+end_src
+
+   #+RESULTS:
+
+   Aber wo soll das enden? Das wäre als eine wenig handliche Vorgehensweise. Und daher gibt es sogenannte „Listen“ in Python. Wer schon eine andere Programmiersprache kennt, hier wird diese Möglichkeit Array genannt.
+
+   Wie können wir in Python nun in Listen Inhalte speichern? Ganz einfach über die eckigen Klammern
+
+   vornamen = ['Axel', 'Elke', 'Martin']
+
+   Die Ausgabe kann wie gewohnt über print() erfolgen:
+
+   #+begin_src python
+     vornamen = ['Axel', 'Elke', 'Martin']
+     print(vornamen)
+   #+end_src
+
+   #+RESULTS:
+   : ['Axel', 'Elke', 'Martin']
+
+   Es werden nun alle Vornamen ausgegeben. Wollen wir nun nur einen bestimmten Vornamen ausgeben, müssen wir die Index-Nummer mitgeben. Diese wird in einer eckigen Klammer geschrieben.
+
+   #+begin_src python
+     vornamen = ['Axel', 'Elke', 'Martin']
+     print(vornamen[1])
+   #+end_src
+
+   #+RESULTS:
+   : Elke
+
+   Das Ergebnis der Ausgabe ist nun:
+
+   Elke
+
+   Warum nicht das erste Element unserer Liste, was ja offensichtlich den Inhalt „Axel“ enthält? Hier ist es wichtig, dass Computer immer bei 0 anfangen zu zählen, insbesondere bei Listen. Wollen wir also das erste Element unserer vornamen-Liste erhalten, müssen wir als Index 0 angeben:
+
+   #+begin_src python
+     vornamen = ['Axel', 'Elke', 'Martin']
+     print(vornamen[0])
+   #+end_src
+
+   #+RESULTS:
+   : Axel
+
+   Jetzt bekommen wir das erste Element der Liste. Daher der wichtige Merksatz
+
+   MERKE: Listenelemente fangen immer beim Index 0 an!
+
+   letztes Listenelement ansprechen
+   Wir können auch von hinten anfangen etwas ausgeben. Und hier fängt man mit -1 an! Somit wird das letzte Element ausgegeben:
+
+   #+begin_src python
+     vornamen = ['Axel', 'Elke', 'Martin']
+     print(vornamen[-1])
+   #+end_src
+
+   #+RESULTS:
+   : Martin
+
+   Somit bekommen wir als Ausgabe unseren „Martin“.
+
+   Listenwerte überschreiben
+   Wollen wir einen bestehenden Listeneintrag überschreiben, weil aus dem Martin eine Martina geworden ist, können wir das über die Index-Nummer und einer neuen Wertzuweisung machen:
+
+   #+begin_src python
+     vornamen = ['Axel', 'Elke', 'Martin']
+     vornamen[2] = 'Martina'
+   #+end_src
+
+   #+RESULTS:
+
+   Lassen wir nun unsere Liste mit print() ausgeben:
+
+   #+begin_src python
+     vornamen = ['Axel', 'Elke', 'Martin']
+     vornamen[2] = 'Martina'
+     print(vornamen)
+   #+end_src
+
+   #+RESULTS:
+   : ['Axel', 'Elke', 'Martina']
+
+   kommt der Liste mit dem geänderten Wert:
+
+   ['Axel', 'Elke', 'Martina']
+
+   Listen durch weitere Elemente erweitern
+   Wir können Python-Listen einfach über das Pluszeichen erweitern.
+
+   #+begin_src python
+     vornamen = ['Axel', 'Elke', 'Martin']
+     vornamen += ['Heike', 'Sabine']
+   #+end_src
+
+   #+RESULTS:
+
+   Nun wird die bestehende Liste um diese 2 Elemente erweitert. Lassen wir die Liste ausgeben, erhalten wir:
+
+   ['Axel', 'Elke', 'Martina', 'Heike', 'Sabine']
+
+   Die Schreibweise "vornamen +=" ist die Kurzschreibweise von
+
+   vornamen = vornamen + ['neue Werte']
+   Python stellt verschiedene Funktion für Listen zur Verfügung. Hier gibt es eine Funktion zum Erweitern von Listen: listenname.append('neuer Wert'). Als konkretes Beispiel sieht das nun so aus:
+
+   vornamen = ['Axel', 'Elke', 'Martin']
+   vornamen.append('Rolf')
+   Komplette Liste löschen: del()
+   Wird eine komplette Liste nicht mehr benötigt bzw. soll diese im nachfolgenden Code wieder neu aufgebaut werden, kann die alte Liste gelöscht werden. Dies geschieht über die Funktion del()
+
+   Unser Beispiel von oben wandeln wir ab. Wir wollen nicht mehr die bestehende Liste mit den Vornamen erweitern, sondern durch einen komplett anderen Inhalt ersetzen:
+
+   vornamen = ['Axel', 'Elke', 'Martin']
+   print(vornamen)
+
+   del(vornamen)
+   vornamen = ['Heike', 'Sabine']
+   print(vornamen)
+   Als Ergebnis erhalten wir:
+
+** mit Listen arbeiten – Einsatz von Methoden
+   https://www.python-lernen.de/listen-methoden.htm
+
+   #+begin_src python
+     vornamen = ['Axel', 'Elke', 'Martin']
+     print(vornamen[1])
+   #+end_src
+
+   #+RESULTS:
+   : Elke
+
+   Jetzt wenden wir die Methode upper() auf unser Objekt (in diesem Fall einen String) an. Unsere Ausgabe vom Listenobjekt mit dem Index 1 wird mit der Methode „schreib alles groß“ bzw. upper() verbunden:
+
+   #+begin_src python
+     vornamen = ['Axel', 'Elke', 'Martin']
+     print(vornamen[1].upper())
+   #+end_src
+
+   #+RESULTS:
+   : ELKE
+
+** Weiterer Eintrag am Ende einer Liste anhängen: append()
+
+   #+begin_src python
+     buchstaben = []
+     print(buchstaben)
+     buchstaben.append('a')
+     buchstaben.append('b')
+     print(buchstaben)
+   #+end_src
+
+   #+RESULTS:
+   : []
+   : ['a', 'b']
+
+** Element in Liste an bestimmte Position einfügen: insert()
+
+   Wollen wir nicht am Ende, sondern an einer vordefinierten Stelle Inhalt in der Liste einfügen, kommt die Methode insert() zum Einsatz.
+
+   Weil es so schön übersichtlich ist, nutzen wir wieder unser Buchstabenbeispiel und wollen nun in der bestehenden Liste mit ['a', 'b'] ein „c“ zwischen „a“ und „b“ schieben (sprich einfügen).
+
+   Jetzt benötigen wir bei der Methode insert() bereits 2 Parameter:
+
+   was soll eingefügt werden
+   wo soll es einfügt werden
+   Beide Angaben werden in den Runden Klammern der Methode mit übergeben. Vergisst man Angaben, erhält man den Fehler „TypeError: insert() takes exactly 2 arguments (1 given)“. Die Reihenfolge ist:
+
+   wo soll es eingefügt werden als Index
+   was soll eingefügt werden
+   #+begin_src python
+     buchstaben = ['a', 'b']
+     print(buchstaben)
+     buchstaben.insert(1, 'c')
+     print(buchstaben)
+   #+end_src
+
+   #+RESULTS:
+   : ['a', 'b']
+
+   : ['a', 'c', 'b']
+
+** Element aus Liste entfernen: del
+Genauso wichtig wie einfügen ist auch das Löschen. In vielen Spielen werden Daten in Listen gespeichert. Sind die Gegner in Listen gespeichert und fällt ein Gegner einem heimtückischen Anschlag zum Opfer und verstirbt tragisch, muss dieser aus der Liste entfernt werden. Dazu bietet Python die Anweisung del, der ein Index mit übergeben werden muss, welches Listenelement gelöscht werden soll. Unser Buchstabenbeispiel:
+
+#+begin_src python
+buchstaben = ['a', 'b']
+print(buchstaben)
+del buchstaben[0]
+print(buchstaben)
+#+end_src
+
+#+RESULTS:
+: ['a', 'b']
+: ['b']
+
+** Elemente aus Liste entfernen anhand seines Wertes: remove()
+Wir können auch ein Element anhand seines Wertes aus einer Liste entfernen lassen. Dazu wird der Wert mit übergeben:
+
+#+begin_src python
+buchstaben = ['a', 'b', 'c']
+print(buchstaben)
+buchstaben.remove('b')
+print(buchstaben)
+#+end_src
+
+#+RESULTS:
+: ['a', 'b', 'c']
+: ['a', 'c']
+
+** Sortieren von Listen über sorted()
+Benötige man die Listeneinträge sortiert, kann die über die Funktion sorted() durchgeführt werden. Im folgenden Beispiel liegen die Buchstaben in der Liste in einer nicht definierten Reihenfolge vor. Im Folgenden Beispiel erfolgt die erste Sortierung aufsteigend und dann im nächsten Schritt absteigend:
+
+#+begin_src python
+buchstaben = ['a', 'c', 'b']
+print(buchstaben)
+
+buchstaben_sortiert = sorted(buchstaben)
+print(buchstaben_sortiert)
+
+buchstaben_sortiert_absteigend = sorted(buchstaben, reverse=True)
+print(buchstaben_sortiert_absteigend)
+#+end_src
+
+#+RESULTS:
+: ['a', 'c', 'b']
+: ['a', 'b', 'c']
+: ['c', 'b', 'a']
+
+Soll bei der Sortierreihenfolge nicht auf Groß- und Kleinschreibung geachtet werden, muss die entsprechende Anweisung mitgegeben werden.
+
+#+begin_src python
+buchstaben = ['a', 'c', 'B', 'A']
+print(buchstaben)
+
+# sortiert, Groß-Kleinschreibung wird beachtet
+buchstaben_sortiert_1 = sorted(buchstaben)
+print(buchstaben_sortiert_1)
+
+# sortiert ohne Rücksicht auf Großbuchstaben
+buchstaben_sortiert_2 = sorted(buchstaben, key=str.lower)
+print(buchstaben_sortiert_2)
+#+end_src
+
+#+RESULTS:
+: ['a', 'c', 'B', 'A']
+: ['A', 'B', 'a', 'c']
+: ['a', 'A', 'B', 'c']
+
+** Mehr als 1 Buchstaben – von bis
+Wollen wir nun mehr als nur ein Zeichen auslesen, können wir das über das "bis"-Zeichen. In Python wird dazu der Doppelpunkt verwendet.
+
+Unser vorheriges Beispiel erweitern wir. Es sollen nicht nur 1, sondern 6 Zeichen ausgelesen werden:
+
+#+begin_src python
+variableA = 'Ich bin eine Variable'
+print( variableA[0:5] )
+#+end_src
+
+#+RESULTS:
+: Ich b
+
+#+begin_src python
+variableA = 'Ich bin eine Variable'
+print( variableA[7:] )
+#+end_src
+
+#+RESULTS:
+:  eine Variable
+
+** Datentyp Dictionary – Wörterbücher in Python
+
+#+begin_src python :session "dict"
+deutschenglisch = {}
+deutschenglisch['null'] = 'zero'
+deutschenglisch['eins'] = 'one'
+deutschenglisch['zwei'] = 'two'
+deutschenglisch['drei'] = 'three'
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python :session "dict"
+print (deutschenglisch.keys())
+#+end_src
+
+#+RESULTS:
+: dict_keys(['null', 'eins', 'zwei', 'drei'])
+
+#+begin_src python :session "dict"
+print(deutschitalienisch.items())
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python
+tupel = 'wert1', 'wert2'
+type(tupel)
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python
+  inhaltA = ('wert1',)
+  inhaltB = ('wert2')
+  print(type(inhaltA))
+  print(type(inhaltB))
+#+end_src
+
+#+RESULTS:
+
+** Zugriff auf Werte in einem Tupel
+Der Zugriff und die Möglichkeiten sind gleich wie bei der Liste. Ich kann gezielt auf einen bestimmten Inhalt zugreifen:
+
+#+begin_src python
+tupel = ('wert1', 'wert2', 'wert3', 'wert4', 'wert5')
+print (tupel[0])
+#+end_src
+
+#+RESULTS:
+: wert1
+
+Über die eckigen Klammern greife ich per Index auf den entsprechenden Wert zu. Auch wie bei Listen startet der Index bei 0!
+
+Ich kann auch mehrere Werte anhand von „von – bis“ auswählen:
+
+#+begin_src python
+tupel = ('wert1', 'wert2', 'wert3', 'wert4', 'wert5')
+print (tupel[2:4])
+#+end_src
+
+#+RESULTS:
+: ('wert3', 'wert4')
+
+Beispiel für tuple.index("gesucht")
+Die Methode .index("gesucht") liefert uns die Position im Index zurück.
+
+#+begin_src python
+vornamen =  ( "Hans","Peter","Elke","Peter","Sabine","Elke")
+print(vornamen)
+print (vornamen.index("Peter"))
+#+end_src
+
+#+RESULTS:
+: ('Hans', 'Peter', 'Elke', 'Peter', 'Sabine', 'Elke')
+: 1
+
+** Mengen managen über: set und frozenset
+Über das Objekt set ist in Python das Konzept der Mathematik mit Mengen und Mengenlehre nachgebaut.
+
+In einem Set steckt eine ungeordnete Sammlung von Objekten, die nur 1-Mal vorkommen!
+
+Aufbau eines Sets über geschweifte Klammern:
+
+#+begin_src python
+set_a = { 1, 2, 3, 'A', 'B', 'C' }
+#+end_src
+In einem Set steckt eine ungeordnete Sammlung von Objekten, die nur 1-Mal vorkommen! Dies sieht man sehr schön, wenn man ein Tupel mit Dopplungen in ein set umwandelt:
+
+#+begin_src python
+werte_als_tupel = (1,1,1,3,5,3,4,5,3)
+werte_als_set   = set(werte_als_tupel)
+print(werte_als_set)
+#+end_src
+
+#+RESULTS:
+: {1, 3, 4, 5}
+
+** Mengenlehre mit Set
+Das Besondere ist nun, dass über 2 Sets Mengenlehre mit „Schnittmenge“, „Vereinigungsmenge“, „A ohne B“ usw. durchgeführt werden kann.
+
+#+begin_src python :session "set2"
+set_a = { 1, 2, 3, 'A', 'B', 'C' }
+set_b = { 2, 3, 'B', 'D' }
+#+end_src
+
+#+RESULTS:
+
+Wollen wir nun die Schnittmenge (also was in beiden Mengen vorkommt) herausfiltern, läuft dies über das kaufmännische Und &:
+
+#+begin_src python :session "set2"
+print( set_a & set_b )
+#+end_src
+
+#+RESULTS:
+: {2, 3, 'B'}
+
+** Im folgenden Beispiel die üblichen Verdächtigen bei der Mengenlehre:
+
+#+begin_src python :session "set2"
+
+print("Set A:")
+print(set_a)
+
+print("Set B:")
+print(set_b)
+print()
+
+print("Schnittmenge über &")
+print( set_a & set_b )
+print()
+
+print("Vereinigungsmenge über |")
+print( set_a | set_b )
+print()
+
+print("Differenzmenge über - ")
+print( set_a - set_b )
+print()
+
+print("Symmmetrische Differnz (entweder-oder) über ^")
+print( set_a ^ set_b )
+print()
+
+print("Obermenge von  > ")
+print( set_a > set_b )
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Set A:
+{1, 2, 3, 'C', 'A', 'B'}
+Set B:
+{2, 3, 'D', 'B'}
+
+Schnittmenge über &
+{2, 3, 'B'}
+
+Vereinigungsmenge über |
+{1, 2, 3, 'C', 'B', 'D', 'A'}
+
+Differenzmenge über -
+{1, 'C', 'A'}
+
+Symmmetrische Differnz (entweder-oder) über ^
+{1, 'C', 'A', 'D'}
+
+Obermenge von  >
+False
+#+end_example
+
+** frozenset und Unterschied zu set
+set-Objekte sind veränderbar – diese werden eingefroren und somit unveränderbar über frozenset.
+
+Die Umwandlung kann man vorwärts wie rückwärts machen, sprich aus einem Set ein Frozenset und rückwärts.
+
+#+begin_src python :session "set3"
+set_a = { 1, 2, 3, 'A', 'B', 'C' }
+set_c = frozenset(set_a)
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python :session "set3"
+print(set_c)
+print(type(set_c))
+
+set_c = set(set_c)
+print(set_c)
+print(type(set_c))
+#+end_src
+
+#+RESULTS:
+: frozenset({1, 2, 3, 'B', 'A', 'C'})
+: <class 'frozenset'>
+: {1, 2, 3, 'B', 'A', 'C'}
+: <class 'set'>
+
+** Beispiel Anzahl Buchstaben in Text zählen mit Hilfe von set
+Anhand der Anweisung set werten wir einen Text aus und zählen die Anzahl der Buchstaben. Dabei wird im ersten Code es Schritt für Schritt gemacht. Dasselbe kommt dann nochmals komprimiert.
+
+#+begin_src python
+inhalt = "anzahl"
+
+# doppelte Buchstaben entfernen
+buchstaben = set(inhalt)
+print(buchstaben)
+
+# zum Sortieren aus dem SET eine Liste machen
+buchstabenliste = list(buchstaben)
+print(buchstabenliste)
+
+# sortieren
+buchstabensortiert = sorted(buchstabenliste)
+print(buchstabensortiert)
+
+# der Reihen nach durchlaufen und Anzahl zählen
+# die for-Schleife kommt in einem späteren Kapitel
+
+for einzelbuchstabe in buchstabensortiert:
+    print(einzelbuchstabe ,": Anzahl ", inhalt.count(einzelbuchstabe))
+#+end_src
+
+#+RESULTS:
+: {'z', 'h', 'l', 'a', 'n'}
+: ['z', 'h', 'l', 'a', 'n']
+: ['a', 'h', 'l', 'n', 'z']
+: a : Anzahl  2
+: h : Anzahl  1
+: l : Anzahl  1
+: n : Anzahl  1
+: z : Anzahl  1
+
+
+#+begin_src python
+inhalt = "Buchstaben zählen"
+for einzelbuchstabe in sorted(list(set(inhalt))):
+    print(einzelbuchstabe ,": Anzahl ", inhalt.count(einzelbuchstabe))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+  : Anzahl  1
+B : Anzahl  1
+a : Anzahl  1
+b : Anzahl  1
+c : Anzahl  1
+e : Anzahl  2
+h : Anzahl  2
+l : Anzahl  1
+n : Anzahl  2
+s : Anzahl  1
+t : Anzahl  1
+u : Anzahl  1
+z : Anzahl  1
+ä : Anzahl  1
+#+end_example
+
+** input – Nutzereingaben anfordern
+   :PROPERTIES:
+   :ID:       d9d37237-8357-42cf-987e-2716a622fe97
+   :END:
+
+   https://www.python-lernen.de/input-nutzereingaben.htm
