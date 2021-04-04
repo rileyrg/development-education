@@ -458,7 +458,7 @@
    #+RESULTS:
    : 11
 
-** TODO Bereiche können auch definiert werden. Wird die letzte Zahl negativ angegeben, erfolgt die Zählung von hinten:
+** Bereiche können auch definiert werden. Wird die letzte Zahl negativ angegeben, erfolgt die Zählung von hinten:
    :LOGBOOK:
    - Note taken on [2021-03-16 Tue 23:28] \\
      cant figure this out at all

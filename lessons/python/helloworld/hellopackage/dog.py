@@ -1,11 +1,10 @@
-"""This module does blah blah."""
+"""This module makes lamp posts go rusty."""
 from dataclasses import dataclass
 
 
 @dataclass
 class Dog:
     "Woof! I'm A Dog"
-
     name: str
     barksound: str = "Woof! I'm A Dog"
 
@@ -32,8 +31,7 @@ class DogPussy(Dog):
         super().__init__(name, barksound="Miaow, I'm non binary.")
 
     def bark(self):
-        print("%s is a DogPussy and her snack is %s" %
-              (self.name,  self.snack))
+        print("%s is a DogPussy and her snack is %s" % (self.name, self.snack))
         super(DogPussy, self).bark()
 
 
@@ -42,6 +40,7 @@ Cat = DogPussy
 
 def debugDogs():
     "HELLO"
+    print("debugDogs")
     dennis = Dog("Dennis")
     dennis.bark()
     fang = DogBig("Fang")
@@ -56,5 +55,3 @@ def debugDogs():
 
 if __name__ == "__main__":
     debugDogs()
-
-print("Imported dog.py")

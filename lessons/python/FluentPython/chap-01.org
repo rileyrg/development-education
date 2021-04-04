@@ -1,0 +1,64 @@
+#+title: Fluent Python Chapter 1
+
+#+OPTIONS: ^:nil
+
+# don't export trees tagged with:
+#+EXCLUDE_TAGS: tasklist noexport broken
+# do not export any sections marked as tasks unless TODO or DONE
+#+OPTIONS: tasks:("TODO" "DONE")
+# do not include task keywords in export
+#+OPTIONS: todo:nil
+
+#+PROPERTY: header-args:python  :results output :exports both :session "*python - fluent python chapter 1*"
+
+* FrenchDeck
+
+  Create some meta data
+
+   #+begin_src python
+
+     import collections
+
+     Card = collections.namedtuple('Card', ['rank', 'suit'])
+
+     class FrenchDeck:
+
+         ranks = [str(n) for n in range(2, 11)] + list('JQKA')
+         suits = 'spades diamonds clubs hearts'.split()
+
+         def __init__(self):
+             self._cards = [Card(rank, suit) for suit in self.suits for rank in self.ranks]
+
+         def __len__(self):
+             return len(self._cards)
+
+         def __getitem__(self, position):
+             return self._cards[position]
+
+     if __name__ == "__main__":
+         print(FrenchDeck.ranks)
+         print(FrenchDeck.suits)
+   #+end_src
+
+   #+RESULTS:
+   : ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+   : ['spades', 'diamonds', 'clubs', 'hearts']
+
+   Take a peek at a card
+
+   #+begin_src python
+     beer_card = Card('7', 'diamonds')
+     print(beer_card)
+   #+end_src
+
+   #+RESULTS:
+   : Card(rank='7', suit='diamonds')
+
+   Did you know len isn't a method?
+
+   #+begin_src python
+     print(len(beer_card))
+   #+end_src
+
+   #+RESULTS:
+   : 2

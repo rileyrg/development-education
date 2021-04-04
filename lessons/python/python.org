@@ -8,6 +8,7 @@
 
 ** class dict
    #+begin_src python
+
      class CClass:
          vc:int = 99
          def __init__(self,v1:int,v2:int=2):

@@ -13,6 +13,9 @@
 !lessons/python/coreyschafer
 !lessons/python/coreyschafer/*
 
+!lessons/python/FluentPython
+!lessons/python/FluentPython/*.org
+
 !lessons/python/helloworld/
 !lessons/python/helloworld/*.py
 !lessons/python/helloworld/hellopackage/
