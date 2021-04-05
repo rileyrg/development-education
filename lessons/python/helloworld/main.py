@@ -1,10 +1,11 @@
 """This module does blah blah."""
-from hellopackage.dog import Dog, DogPussy, DogPussy as Cat
+
+from hellopackage.dog import Dog, DogPussy
 
 x = 1
+Cat = DogPussy
 
 if x == 1:
-    "indented four spaces"
     print("x is 1.")
     print("Hello World")
 
@@ -18,7 +19,7 @@ def sayhello(name):
 if __name__ == "__main__":
     print(sayhello("Richie"))
 
-dennis = Dog("dennis")
+dennis = Dog("dennis")  # (lsp--suggest-project-root)
 dennis.bark()
 denise = Cat("denise")
 denise.bark()

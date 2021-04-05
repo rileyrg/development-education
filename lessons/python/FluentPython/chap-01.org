@@ -13,8 +13,6 @@
 
 * FrenchDeck
 
-  Create some meta data
-
    #+begin_src python
 
      import collections
@@ -60,5 +58,31 @@
      print(len(beer_card))
    #+end_src
 
+   Lets create pack
+
+   #+begin_src python
+     deck=FrenchDeck()
+     print(len(deck))
+   #+end_src
+
    #+RESULTS:
-   : 2
+   : 52
+
+   #+begin_src python
+     c=deck[1]
+     print(c)
+   #+end_src
+
+   #+RESULTS:
+   : Card(rank='3', suit='spades')
+
+   #+begin_src python
+     from random import choice
+
+     print(choice(deck))
+   #+end_src
+
+   #+RESULTS:
+   : Card(rank='K', suit='diamonds')
+
+   How [] is dlegated to by
