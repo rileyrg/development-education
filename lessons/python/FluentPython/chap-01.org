@@ -58,6 +58,9 @@
      print(len(beer_card))
    #+end_src
 
+   #+RESULTS:
+   : 2
+
    Lets create pack
 
    #+begin_src python
@@ -83,6 +86,17 @@
    #+end_src
 
    #+RESULTS:
-   : Card(rank='K', suit='diamonds')
+   : Card(rank='7', suit='spades')
 
-   How [] is dlegated to by
+Because our __getitem__ delegates to the [] operator of self._cards , our deck auto‐
+matically supports slicing. Here’s how we look at the top three cards from a brand new
+deck, and then pick just the aces by starting on index 12 and skipping 13 cards at a time:
+
+#+begin_src python
+  print(deck[:3])
+  print(deck[12:13])
+#+end_src
+
+#+RESULTS:
+: [Card(rank='2', suit='spades'), Card(rank='3', suit='spades'), Card(rank='4', suit='spades')]
+: [Card(rank='A', suit='spades')]

@@ -39,13 +39,13 @@ class DogPussy(Dog):
 
     def bark(self):
         print("%s is a DogPussy and her snack is %s" % (self.name, self.snack))
-        super(DogPussy, self).bark()
+        super().bark()
 
 
 Cat = DogPussy
 
 
-def debugDogs():
+def debug_dogs():
     "Debugging Dogs"
     print("debugDogs")
     dennis = Dog("Dennis")
@@ -66,4 +66,4 @@ def debugDogs():
 
 
 if __name__ == "__main__":
-    debugDogs()
+    debug_dogs()

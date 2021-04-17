@@ -23,7 +23,7 @@ Put the cursor in the code block and hit C-c C-c  : 'org-ctrl-c-ctrl-c . It know
 
 Now this block! Whoops! The VALUE of v is used. And that doesnt have a symbol name!
 #+begin_src emacs-lisp
-(symbol-name v)
+(message "%s" (symbol-value v))
 #+end_src
 #+RESULTS:
 
@@ -127,93 +127,17 @@ The new y var has the value from v ok!
 
 Now lets frankenstein our new y symbol.
 
-** TODO erc interaction
-   :LOGBOOK:
-   - State "TODO"       from "TODO"       [2020-02-06 Thu 13:39]
-   - State "TODO"       from "TODO"       [2020-02-06 Thu 13:05]
-   - State "TODO"       from              [2020-02-06 Thu 13:04]
-   :END:
-[10:15:56]<rgr> I can bind a value and a function to a symbol v. (setq v "the value v"), (defun v() "function v"). grand.
-           (symbol-value 'v) gives "the value v" and (funcall v) returns "function v".  Whats the syntax for copying the
-           function that's bound to v but not the value ? eg (setq myNewFun (func v)) ?
-[10:16:39]<dale> rgr: (symbol-function 'v)
-[10:16:49]<rgr> oh of course. Thanks. stupid me.
-[10:17:34]<rgr> as a side note, using org babel src blocks is a great way to learn something like elisp. Very handy with block
-           execution and the results being quoted back into the buffer.
-[10:19:14]<rgr> while you're there dale, and to assign that to the function attribute of my symbol? Or just setq and it knows
-           because of its type?
-[10:19:56]<dale> rgr: Are you asking how to change the function bound in a symbol's function slot?
-[10:20:43]<dale> rgr: If so, that's probably (fset 'v #'some-function), or (setf (symbol-function 'v) #'some-function).
-[10:20:47]<rgr> yes but taking it from another symbol using (symbol-function 'x).
-[10:20:55]<rgr> ok thanks I can work it from there. cheers.
-[10:23:09]<dale> Oh, yeah, actually, what I wrote is just wrong.
-[10:23:32]<dale> (fset 'v (symbol-function 'some-function)) is what I should have written.
-[10:29:02]<rgr> 'some-symbol?
-[10:29:51]<rgr> let me try them out and get back
-[10:31:19]<rgr> oh lovely. finally getting down to brass tacks. nice. http://ix.io/28nj
-
-
 #+begin_src emacs-lisp
-(defun z () "function z")
-(setq z "the value z")
-(fset 'y (symbol-function 'z))
-(funcall 'y)
-(fset 'y2 (lambda() "y2"))
-(funcall 'y2)
-(y2)
+(put 'v 'prop1 "hello")
 #+end_src
 
 #+RESULTS:
-: function z
-
-and another way of calling the function
+: hello
 
 #+begin_src emacs-lisp
-(y)
+(get 'v 'prop1)
 #+end_src
-
-#+RESULTS:
-: function z
 
 #+begin_src emacs-lisp
-(funcall (symbol-function 'y))
+  (plist-get (symbol-plist 'v) 'prop1)
 #+end_src
-
-#+RESULTS:
-: function z
-
-#+begin_src emacs-lisp
-(defun f1() "function 1")
-(defun f2() "function 2")
-(setq flist '(f0 f1 f2 f3))
-
-(funcall (car (cdr flist)))
-(dolist (fn flist v)
-  (progn
-    (if(fboundp fn)
-      (message "result of calling function %s is %s" (symbol-name fn) (funcall fn))
-      (message "sorry but %s isnt a function." fn))))
-#+end_src
-
-#+RESULTS:
-: the value v
-
-#+begin_src emacs-lisp
-(defun call-a-function(f)
-(funcall f))
-
-(fset 'z '(lambda() "z"))
-(call-a-function 'z)
-
-(defun z2 ()
-"z2")
-
-(call-a-function (symbol-function 'z2))
-
-
-#+end_src
-
-
-# Local Variables:
-# eval: (setq-local org-confirm-babel-evaluate nil)
-# End:
