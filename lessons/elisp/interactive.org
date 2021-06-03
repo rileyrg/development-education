@@ -1,0 +1,10 @@
+* test key binding
+  #+begin_src emacs-lisp
+    (use-package emacs
+      :config
+      (defun rgr/interactive(s)
+        (interactive "s")
+        (message "rgr/interactive: %s " s))
+      :bind
+      ("C-c C-i" . rgr/interactive))
+  #+end_src

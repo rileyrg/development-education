@@ -10,6 +10,55 @@
       (message "rgr is %s, while hello is %s" rgr hello)
       ))
 #+end_src
+** DONE elisp quoting                           :elist:quoting:quote:alist :ARCHIVE:
+   CLOSED: [2021-05-19 Wed 20:30] SCHEDULED: <2021-04-27 Di>
+   :PROPERTIES:
+   :DateCreated: <2021-04-26 Mo 12:11>
+   :END:
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2021-05-19 Wed 20:30]
+   - State "TODO"       from              [2021-04-26 Mo 12:58]
+   :END:
+
+ <rgr> the Q you've answered a gazilion times before. (add-to-list 'el-docstring-sap--display-funcs '("QuickPeek"  . el-docstring-sap--quick-peek).  Now here el-docstring-sap--quick-peek is a function name that I call with (funcall variable-whose-valueis-el-docsting-sap--quick-peek)).  I cant get my head around why I dont need to quote it in the add-to-list element.
+ <rgr> What basic thing have I overlooked?
+ <bpalmer> rgr: it's already quoted.
+ <bpalmer> '(...)   <-- everything in the ... is quoted, because of the external '
+ <bpalmer> '(a b c) or '(a . b) are like (list 'a 'b 'c) or (cons 'a 'b) ; you can think of it as distributing the quote, if you'd like.
+ <rgr> ok. I read over that I guess. Now (defcustom ... Its says specifically dont quote but i guess I misunderstand the context. eg this is correct. I think I'm getting confused becuase I use use-package and you never seem to have to quote anything there ; ) (defcustom el-docstring-sap--display-func  'el-docstring-sap--quick-peek  "The function to display a docstring for symbol at point." :type 'function :group 'el-docstring-sap)
+ <rgr> I'll *scratch* around.
+ <bpalmer> use-package is a macro ; macros control what gets evaluated when.
+ <pjb> rgr:  more generally, you must realize that lisp code is not written as code, but as data.
+ <pjb> rgr: when lisp was invented, there was two syntaxes: S-expression (symbolic expressions) to represent data, and M-expression (metasymbolic-expressions IIRC), to repesent code.
+ <pjb> rgr: for example you'd write things like defun(f,[x],if(eq(x,1),1,times(x,f(minus(x,1)))))  and cons(42,[1,2,3])  and print([PRINT,[X]])
+ <pjb> rgr: oops, I did the M-expression syntax wrong.
+ <fourier> iirc Wolfram Mathematica uses M-expression
+ <pjb> rgr: it was: defun[f;[x];if[eq[x;1];1;times[x;f[minus[x;1]]]]]  and cons[42;(1,2,3)]
+ <rgr> a rich and varied past. I seem to recall a small lisp module at Uni back in the late 80s.  Or was it prolog? ;)  It was the new black back then.
+ <pjb> rgr: so as you can notice, the syntax for code is different from the syntax for data, so there's no need for quoting, since it's clear what is code (lowercase identifiers, brackets and semi-colons) from what is data (uppercase symbols, parentheses and commas).
+ <rgr> Aha, I get you.
+ <pjb> rgr: but then of course, John McCarthy wrote the eval function (in M-expression in the early 60s, all lisp code in papers and documentation is written as M-expressions!).
+ <rgr> so are strings treated differently? What does it mean then to implicitly quote a string in a list element eg (a-t-l 'l '("PopUp" .  el-docstring-sap--popup) : Does '"PopUp" have a distinct meaning over "Popup"?
+ <pjb> rgr: this eval function took S-expressions (data) of course.  And his student Steve Russell realized that he could implement this eval in assembler, without waiting for the finalization of the M-expression syntax, and the implementation of a parser for it.  Which is what he did and we got LISP 1.
+ <rgr> crikey, you know your stuff..
+ <pjb> rgr: so LISP 1 could take S-expressions representing programs, and interpret them.
+ <pjb> rgr: but there was this problem in lisp programs, represented as S-expressions, to distinguish literal data in it.  Hence the invention of the QUOTE operator.
+ <pjb> rgr: Nowadays, if you see something like: (1 2 3)  you know it's some data.  But if you see (f g h) it may be data or code (if f is fbound to a function or a macro or is a special operator).
+ <pjb> rgr:  when we assume it's code, we need quote to indicate that a subexpression is data: (f (quote (1 2 3)) x)
+ <rgr> that last statement is the key.
+ <pjb> rgr: Note, the repressentation of (f (quote (1 2 3)) x) as M-expression doesn't have the quote: f[(1,2,3);x]
+ <pjb> rgr: code: f[x;y] data: (f x y) code with data: f[(f x y);y]  form (data as code): (f (quote f x y) y)
+ <pjb> Oops: (f (quote (f x y)) y)
+ <pjb> rgr: so the only case when you'd need a quote inside a quote, is if your literal data were a S-exp representing some code that had some literal data in it.
+ <pjb> rgr: eg. (print '(list :ip '(127 0 0 1)))  ; this may occur when you write macros or functions manipulating code.  But not in normal data.
+ <pjb> rgr: http://informatimago.com/develop/lisp/com/informatimago/small-cl-pgms/m-expression/index.html
+ <pjb> rgr: http://informatimago.com/develop/lisp/com/informatimago/small-cl-pgms/aim-8/index.html
+ <pjb> rgr: http://www-formal.stanford.edu/jmc/history/lisp/lisp.html
+ <rgr> All saved to my org-keep file for a coffee peruse later. Thank you.
+ <pjb> rgr: for an example, see in http://www.softwarepreservation.org/projects/LISP/book/LISP%201.5%20Programmers%20Manual.pdf  the code for the Wang algorithm, page 44.  (code starting page 46). You'll see it written in M-expressions.  But the card deck was in S-exp: http://informatimago.com/develop/lisp/com/informatimago/small-cl-pgms/wang.html
+ <pjb> rgr: you can even run this code with LISP 1.5 on a 7090 emulator (simh) if you want ;-)
+ <pjb> But I like running old code in modern Common Lisp :-)
+ <rgr> I'm not backing off this time. I have put my foot into the water numerous times with elisp but never really got on with it - always something else to do. But this time...
 * functions
 ** symbols and vars
 #+begin_src emacs-lisp
@@ -33,3 +82,5 @@
 The return value is the new value of LIST-VAR."
   (set list-var (append (symbol-value list-var) elements)))
 #+end_src
+
+*** open-to-do
