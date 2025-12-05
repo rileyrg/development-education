@@ -10,7 +10,7 @@
    #+begin_src python
 
      class CClass:
-         vc:int = 99
+         vc:int = 97
          def __init__(self,v1:int,v2:int=2):
            self.vi1=v1
            self.vi2=v2
@@ -18,7 +18,7 @@
    #+end_src
 
    #+RESULTS:
-   : {'__module__': '__main__', '__annotations__': {'vc': <class 'int'>}, 'vc': 99, '__init__': <function CClass.__init__ at 0x7f6061eb6550>, '__dict__': <attribute '__dict__' of 'CClass' objects>, '__weakref__': <attribute '__weakref__' of 'CClass' objects>, '__doc__': None}
+   : {'__module__': '__main__', '__annotations__': {'vc': <class 'int'>}, 'vc': 99, '__init__': <function CClass.__init__ at 0x7f02fa8183a0>, '__dict__': <attribute '__dict__' of 'CClass' objects>, '__weakref__': <attribute '__weakref__' of 'CClass' objects>, '__doc__': None}
 
 
 ** instance dict

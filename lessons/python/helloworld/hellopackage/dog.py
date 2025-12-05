@@ -33,7 +33,9 @@ class DogBig(Dog):
 class DogPussy(Dog):
     "Miaow, I'm non binary."
 
-    def __init__(self, name: str, snack: str = "leckerlie"):
+    def __init__(
+        self, name: str, snack: str = "leckerlie"
+    ):  # (get-mode-lookup-reference-functions)
         self.snack = snack
         super().__init__(name, "Miaow, I'm non binary.", "crouching")
 

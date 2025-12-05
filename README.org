@@ -17,3 +17,7 @@
 
 
 * [[file:lessons/python/README.org][Python]]
+
+* C++
+
+** LearnCpp

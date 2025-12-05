@@ -13,7 +13,7 @@ if x == 1:
 def sayhello(name):
     "hello"
     print("Hello %s!\n" % name)
-    return "you sexy beast"
+    return "you sexy beast2"
 
 
 if __name__ == "__main__":
