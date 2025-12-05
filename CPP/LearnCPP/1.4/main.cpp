@@ -1,8 +1,16 @@
 #include <iostream>
 
 int main() {
-  int width{5}; // define variable width and initialize with initial value 5
-  std::cout << width; // prints 5
+  int a; // default-initialization (no initializer)
+
+  // Traditional initialization forms:
+  int b = 5; // copy-initialization (initial value after equals sign)
+  int c(6);  // direct-initialization (initial value in parenthesis)
+
+  // Modern initialization forms (preferred):
+  int d{7};       // direct-list-initialization (initial value in braces)
+  int e{};        // value-initialization (empty braces)
+  std::cout << e; // prints 0
 
   return 0;
 }
