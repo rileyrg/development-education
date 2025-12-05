@@ -32,16 +32,14 @@
 
 !CPP
 !CPP/LearnCPP
-!CPP/LearnCPP/0.13
-!CPP/LearnCPP/0.13/.project
-!CPP/LearnCPP/0.13/src 
-!CPP/LearnCPP/0.13/src/* 
-!CPP/LearnCPP/0.13/.dir-locals.el
-!CPP/LearnCPP/0.13/CMakeLists.txt
+!CPP/LearnCPP/*
+!CPP/LearnCPP/*/*.cpp
+!CPP/LearnCPP/*/*.h
+!CPP/LearnCPP/*/src/*.cpp
+!CPP/LearnCPP/*/include/*.h
+!CPP/LearnCPP/*/.project
+!CPP/LearnCPP/*/.dir-locals.el
+!CPP/LearnCPP/*/CMakeLists.txt
 
-!CPP/LearnCPP/1.1
-!CPP/LearnCPP/1.1/main.cpp
-!CPP/LearnCPP/1.1/.project
-!CPP/LEARNCPP/1.1/.dir-locals.el
 
 
