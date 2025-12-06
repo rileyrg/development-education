@@ -1,7 +1,7 @@
 #include <iostream> // for std::cout
 
 int main() {
-  std::cout << "Hello world!"; // print Hello world! to console
-
+  int x{5};
+  std::cout << "x is equal to: " << x;
   return 0;
 }
