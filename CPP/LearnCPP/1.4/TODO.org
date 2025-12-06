@@ -1,0 +1,7 @@
+* Project Tasks
+** TODO test
+:PROPERTIES:
+:DateCreated: <2025-12-06 Sat 19:55>
+:END:
+
+[[file:~/development/education/CPP/LearnCPP/1.4/main.cpp]]
