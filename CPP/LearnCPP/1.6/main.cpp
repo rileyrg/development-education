@@ -1,8 +1,13 @@
 #include <iostream>
-
+// programın amacı, başlatılmamış değişkenlerin sergilediği davranışları
+// gözlemlemek. 5 kasım 2025
 int main() {
-  std::cout << sizeof(int)
-            << '\n'; // print how many bytes of memory an int value takes
-
+  int i;
+  char c;
+  double d;
+  float f;
+  bool b;
+  std::cout << "int	:" << i << "\nchar	:" << c << "\ndouble	:" << d
+            << "\nfloat	:" << f << "\nbool	:" << b;
   return 0;
 }
