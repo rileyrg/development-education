@@ -7,6 +7,8 @@ project(Add VERSION 0.1.0 LANGUAGES C CXX)
 
 add_executable(add)
 
+include_directories(BEFORE include)
+
 target_sources(add
   PRIVATE
   src/add.cpp src/main.cpp
