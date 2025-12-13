@@ -35,10 +35,12 @@
 !CPP/LearnCPP/*
 !CPP/LearnCPP/*/*.cpp
 !CPP/LearnCPP/*/*.h
-!CPP/LearnCPP/*/src
-!CPP/LearnCPP/*/src/*.cpp
 !CPP/LearnCPP/*/include
 !CPP/LearnCPP/*/include/*.h
+!CPP/LearnCPP/*/src
+!CPP/LearnCPP/*/src/*.cpp
+!CPP/LearnCPP/*/src/include
+!CPP/LearnCPP/*/src/include/*.h
 !CPP/LearnCPP/*/.project
 !CPP/LearnCPP/*/.dir-locals.el
 !CPP/LearnCPP/*/CMakeLists.txt
