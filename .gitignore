@@ -31,19 +31,20 @@
 !lessons/bash/*.org
 
 !CPP
-!CPP/LearnCPP
-!CPP/LearnCPP/*
-!CPP/LearnCPP/*/*.cpp
-!CPP/LearnCPP/*/*.h
-!CPP/LearnCPP/*/include
-!CPP/LearnCPP/*/include/*.h
-!CPP/LearnCPP/*/src
-!CPP/LearnCPP/*/src/*.cpp
-!CPP/LearnCPP/*/src/include
-!CPP/LearnCPP/*/src/include/*.h
-!CPP/LearnCPP/*/.project
-!CPP/LearnCPP/*/.dir-locals.el
-!CPP/LearnCPP/*/CMakeLists.txt
+!CPP/*
+!CPP/
+!CPP/*
+!CPP/*/*.cpp
+!CPP/*/*.h
+!CPP/*/include
+!CPP/*/include/*.h
+!CPP/*/src
+!CPP/*/src/*.cpp
+!CPP/*/src/include
+!CPP/*/src/include/*.h
+!CPP/*/.project
+!CPP/*/.dir-locals.el
+!CPP/*/CMakeLists.txt
 
 
 
