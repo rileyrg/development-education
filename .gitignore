@@ -30,21 +30,11 @@
 !lessons/bash
 !lessons/bash/*.org
 
-!CPP
-!CPP/*
 !CPP/
-!CPP/*
-!CPP/*/*.cpp
-!CPP/*/*.h
-!CPP/*/include
-!CPP/*/include/*.h
-!CPP/*/src
-!CPP/*/src/*.cpp
-!CPP/*/src/include
-!CPP/*/src/include/*.h
-!CPP/*/.project
-!CPP/*/.dir-locals.el
-!CPP/*/CMakeLists.txt
+!CPP/**
 
-
-
+*.out
+build*
+.idea
+.vscode
+compile_commands.json
