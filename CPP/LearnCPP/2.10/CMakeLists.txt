@@ -5,11 +5,11 @@ set(CMAKE_BUILD_PARALLEL_LEVEL 8)
 
 project(Add VERSION 0.1.0 LANGUAGES C CXX)
 
-add_executable(add)
+add_executable(main)
 
-target_sources(add
+target_sources(main
   PRIVATE
-  src/add.cpp src/main.cpp
+  src/main.cpp
 )
 
 
