@@ -1,6 +1,6 @@
 #pragma once
-int getSquareSides()
+int get SquareSides()
 {
-    return 4;
+     r eturn 4;
 }
 
