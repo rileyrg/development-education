@@ -1,3 +1,6 @@
+// Local Variables:
+// End:
+
 #include <iostream>
 
 int main()
