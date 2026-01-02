@@ -1,3 +1,10 @@
+// Local Variables:
+// rmsbolt-command: "gcc -O0"
+// rmsbolt-disassemble: nil
+// End:
+
+
+
 #include <iostream>
 #include <utility>
 
@@ -13,8 +20,12 @@ struct S {
     }
 };
 
+S make_value(int x) {
+    return S(x);
+}
+
 int main() {
-    S s(21);
+    S s = make_value(21);
     std::cout << "answer: " << s.x << "\n";
     return 0;
 }
