@@ -1,5 +1,5 @@
 // Local Variables:
-// rmsbolt-command: "gcc -O0"
+// rmsbolt-command: "gcc -fno-elide-constructors -std=c++11 -O0"
 // rmsbolt-disassemble: nil
 // End:
 
