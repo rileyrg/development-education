@@ -1,6 +1,9 @@
 #include <iomanip> // for std::setw (which sets the width of the subsequent output)
 #include <iostream>
-#include <climits> // for CHAR_BIT
+#include <climits>  // for CHAR_BIT
+
+// https://www.learncpp.com/cpp-tutorial/object-sizes-and-the-sizeof-operator/
+
 
 int main()
 {
@@ -16,7 +19,12 @@ int main()
     std::cout << std::setw(16) << "long long:" << sizeof(long long) << " bytes\n";
     std::cout << std::setw(16) << "float:" << sizeof(float) << " bytes\n";
     std::cout << std::setw(16) << "double:" << sizeof(double) << " bytes\n";
-    std::cout << std::setw(16) << "long double:" << sizeof(long double) << " bytes\n";
+    std::cout << std::setw(16) << "long double:" << sizeof(long double)
+        << " bytes\n";
+
+    int x{};
+    std::cout << "x is " << sizeof(x) << " bytes\n";
+    
 
     return 0;
 }
