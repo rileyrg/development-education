@@ -2,18 +2,14 @@
 
 #include <iostream>
 
-void print(double x) // print takes a double parameter
+void print(int x) // print now takes an int parameter
 {
 	std::cout << x << '\n';
 }
 
 int main()
 {
-    print(5);  // what happens when we pass an int value?
-
-    int y { 5 };
-    print(y);  // y is of type int
-    
+	print(5.5); // warning: we're passing in a double value
 
 	return 0;
 }
