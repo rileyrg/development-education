@@ -2,14 +2,14 @@
 
 #include <iostream>
 
-void print(int x) // print now takes an int parameter
+void print(int x)
 {
 	std::cout << x << '\n';
 }
 
 int main()
 {
-	print(5.5); // warning: we're passing in a double value
+	print( static_cast<int>(5.5) ); // explicitly convert double value 5.5 to an int
 
 	return 0;
 }
