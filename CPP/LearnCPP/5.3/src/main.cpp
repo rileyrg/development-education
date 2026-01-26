@@ -1,13 +1,17 @@
 // https://www.learncpp.com/cpp-tutorial/numeral-systems-decimal-binary-hexadecimal-and-octal/
 #include <iostream>
 
+#include <iostream>
+
 int main()
 {
-    int bin{};        // assume 16-bit ints
-    bin = 0b1;        // assign binary 0000 0000 0000 0001 to the variable
-    bin = 0b11;       // assign binary 0000 0000 0000 0011 to the variable
-    bin = 0b1010;     // assign binary 0000 0000 0000 1010 to the variable
-    bin = 0b11110000; // assign binary 0000 0000 1111 0000 to the variable
+    int x { 12 };
+    std::cout << x << '\n'; // decimal (by default)
+    std::cout << std::hex << x << '\n'; // hexadecimal
+    std::cout << x << '\n'; // now hexadecimal
+    std::cout << std::oct << x << '\n'; // octal
+    std::cout << std::dec << x << '\n'; // return to decimal
+    std::cout << x << '\n'; // decimal
 
     return 0;
 }
