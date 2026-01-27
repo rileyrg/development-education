@@ -21,3 +21,5 @@
 : 1769541577:0;cmake --build build.debug --clean-first --target main
 : 1769541579:0;./build.debug/main
 : 1769541583:0;exit
+: 1769541654:0;cmake --build build.debug --clean-first --target main  && ./build.debug/main
+: 1769541667:0;exit
