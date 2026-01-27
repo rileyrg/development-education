@@ -2,28 +2,32 @@
 
 #include <iostream>
 #include <string>
+#include <string_view>
 
-void printString(std::string str) // str makes a copy of its initializer
+void printSV(std::string_view str) // now a std::string_view, creates a view of the argument
 {
     std::cout << str << '\n';
 }
 
-// When printString(s) is called, str makes an expensive copy of s. The function prints the copied string and then destroys it.
+// std::string_view takes a different approach to initialization. Instead of making an expensive copy of the initialization string, std::string_view creates an inexpensive view of the initialization string. The std::string_view can then be used whenever access to the string is required.
 
-// Note that s is already holding the string we want to print. Could we just use the string that s is holding instead of making a copy? The answer is possibly -- there are three criteria we need to assess:
+// In the context of our analogy, std::string_view is a viewer. It views an object that already exists elsewhere, and cannot modify that object. When the view is destroyed, the object being viewed is not affected. Having multiple viewers viewing an object simultaneously is fine.
 
-// Could s be destroyed while str is still using it? No, str dies at the end of the function, and s exists in the scope of the caller and can’t be destroyed before the function returns.
-// Could s be modified while str is still using it? No, str dies at the end of the function, and the caller has no opportunity to modify the s before the function returns.
-// Does str modify the string in some way that the caller would not expect? No, the function does not modify the string at all.
-// Since all three of these criteria are false, there is no risk in using
-// the string that s is holding instead of making a copy. And since
-// string copies are expensive, why pay for one that we don’t need?
+// It is important to note that a std::string_view remains dependent on the initializer through its lifetime. If the string being viewed is modified or destroyed while the view is still being used, unexpected or undefined behavior will result.
+
+// Whenever we use a view, it is up to us to ensure these possibilities
+// do not occur.
 
 
 int main()
 {
-    std::string s{ "Hello, world!" };
-    printString(s);
+    printSV("Hello, world!"); // call with C-style string literal
+
+    std::string s2{ "Hello, world!" };
+    printSV(s2); // call with std::string
+
+    std::string_view s3 { s2 };
+    printSV(s3); // call with std::string_view
 
     return 0;
 }
