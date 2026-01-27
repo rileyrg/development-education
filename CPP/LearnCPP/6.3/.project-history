@@ -26,3 +26,7 @@
 : 1769541847:0;cmake -B build.debug -DCMAKE_BUILD_TYPE=Debug 
 : 1769541850:0;cmake --build build.debug --clean-first --target main  && ./build.debug/main
 : 1769541864:0;exit
+: 1769544112:0;cmake --build build.debug --clean-first --target main  && ./build.debug/main
+: 1769544156:0;exit
+: 1769545914:0;history
+: 1769545926:0;exit
