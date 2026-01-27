@@ -1,19 +1,22 @@
 // 5.9 — std::string_view (part 2) https://www.learncpp.com/cpp-tutorial/stdstring_view-part-2/
 
 #include <iostream>
+#include <string>
 #include <string_view>
 
-std::string_view getBoolName(bool b)
+std::string_view firstAlphabetical(std::string_view s1, std::string_view s2)
 {
-    if (b)
-        return "true";  // return a std::string_view viewing "true"
-
-    return "false"; // return a std::string_view viewing "false"
-} // "true" and "false" are not destroyed at the end of the function
+    if (s1 < s2)
+        return s1;
+    return s2;
+}
 
 int main()
 {
-    std::cout << getBoolName(true) << ' ' << getBoolName(false) << '\n'; // ok
+    std::string a { "World" };
+    std::string b { "Hello" };
+
+    std::cout << firstAlphabetical(a, b) << '\n'; // prints "Hello"
 
     return 0;
 }
