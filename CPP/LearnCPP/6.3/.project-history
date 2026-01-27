@@ -1,0 +1,28 @@
+: 1769540537:0;rm .history
+: 1769540539:0;ls -al
+: 1769540547:0;echo $HISTFILE
+: 1769540551:0;exit
+: 1769540872:0;./build/main
+: 1769540876:0;ls -l
+: 1769540882:0;./build.debug/main
+: 1769540886:0;exit
+: 1769541078:0;./build.debug/main
+: 1769541087:0;exit
+: 1769541103:0;cmake --build build.debug --clean-first --target main  && ./build.debug/main
+: 1769541110:0;exit
+: 1769541134:0;cmake -B build.debug -DCMAKE_BUILD_TYPE=Debug 
+: 1769541142:0;./build.debug/main
+: 1769541146:0;exit
+: 1769541162:0;cmake --build build.debug --clean-first --target main
+: 1769541182:0;cmake --build build.debug --clean-first --target main  && ./build.debug/main
+: 1769541186:0;exit
+: 1769541564:0;cmake -B build.debug -DCMAKE_BUILD_TYPE=Debug 
+: 1769541569:0;./build.debug/main
+: 1769541577:0;cmake --build build.debug --clean-first --target main
+: 1769541579:0;./build.debug/main
+: 1769541583:0;exit
+: 1769541654:0;cmake --build build.debug --clean-first --target main  && ./build.debug/main
+: 1769541667:0;exit
+: 1769541847:0;cmake -B build.debug -DCMAKE_BUILD_TYPE=Debug 
+: 1769541850:0;cmake --build build.debug --clean-first --target main  && ./build.debug/main
+: 1769541864:0;exit
