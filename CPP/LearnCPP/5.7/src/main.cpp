@@ -4,16 +4,11 @@
 
 int main()
 {
-    std::cout << "Pick 1 or 2: ";
-    int choice{};
-    std::cin >> choice;
+    using namespace std::string_literals;
 
-    std::cout << "Now enter your name: ";
-    std::string name{};
-    std::getline(std::cin >> std::ws, name); // note: added std::ws here
+    constexpr std::string name{ "Alex"s }; // compile error
 
-    std::cout << "Hello, " << name << ", you picked " << choice << '\n';
+    std::cout << "My name is: " << name;
 
     return 0;
 }
-
