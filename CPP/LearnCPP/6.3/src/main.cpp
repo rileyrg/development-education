@@ -4,11 +4,6 @@
 #include <iostream>
 #include <limits> // for std::numeric_limits
 
-#include <cassert> // for assert
-#include <cstdint> // for std::int64_t
-#include <iostream>
-#include <limits> // for std::numeric_limits
-
 // A safer (but slower) version of powint() that checks for overflow
 // note: exp must be non-negative
 // Returns std::numeric_limits<std::int64_t>::max() if overflow occurs
