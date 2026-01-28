@@ -30,3 +30,19 @@
 : 1769544156:0;exit
 : 1769545914:0;history
 : 1769545926:0;exit
+: 1769554351:0;cmake -B build.debug -DCMAKE_BUILD_TYPE=Debug 
+: 1769554357:0;cmake --build build.debug --clean-first --target main 
+: 1769554365:0;cmake --build build.debug --target main 
+: 1769554384:0;cd build.debug
+: 1769554385:0;ls
+: 1769554389:0;make
+: 1769554398:0;make clean
+: 1769554403:0;ls -l
+: 1769554406:0;make
+: 1769554409:0;ls -l
+: 1769554421:0;exit
+: 1769554745:0;build.debug/main
+: 1769554761:0;rm -rf build.debug
+: 1769554776:0;cmake -B build.debug -DCMAKE_BUILD_TYPE=Debug 
+: 1769554786:0;cmake --build build.debug --target main 
+: 1769554790:0;exit
