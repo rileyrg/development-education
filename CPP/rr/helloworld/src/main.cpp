@@ -3,24 +3,23 @@
 
 #include <iostream>
 
-constexpr bool isEven(int x)
-{
-    // if x % 2 == 0, 2 divides evenly into our number, which means it must be an even number
+bool isEven(int x) {
     return (x % 2) == 0;
 }
 
-int main()
-{
-    std::cout << "Enter an integer: ";
-    int x{};
-    std::cin >> x;
+int main() {
+    std::cout << "Hello World\n";
+
+    int x{3};
+
+    x=0;
 
     if (isEven(x))
         std::cout << x << " is even\n";
     else
         std::cout << x << " is odd\n";
 
-    *(int *)0=12;
+    *(int *)x=12;
 
     return 0;
 }

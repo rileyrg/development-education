@@ -11,9 +11,9 @@ constexpr bool isEven(int x)
 
 int main()
 {
-    std::cout << "Enter an integer: ";
-    int x{};
-    std::cin >> x;
+    int x{3};
+
+    x=0;
 
     if (isEven(x))
         std::cout << x << " is even\n";
