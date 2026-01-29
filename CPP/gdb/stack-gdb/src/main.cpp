@@ -7,9 +7,10 @@ constexpr bool isEven(const int x) {
     return (x % 2) == 0;
 }
 
-int main() {
-    int x{3};
 
+int main() {
+
+    int x{3};
     x = 0;
 
     if (isEven(x)) {
@@ -20,5 +21,5 @@ int main() {
 
     *(int*)0 = 12;
 
-    return 0;
+    return 0; // (setq-local completion-at-point-functions nil)
 }
