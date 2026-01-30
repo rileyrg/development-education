@@ -1,6 +1,7 @@
 // 6.3 — Remainder and Exponentiation
 // https://www.learncpp.com/cpp-tutorial/remainder-and-exponentiation/
 
+#include <atomic>
 #include <iostream>
 
 constexpr bool isEven(const int x) {
@@ -11,6 +12,7 @@ constexpr bool isEven(const int x) {
 int main() {
 
     int x{3};
+
     x = 0;
 
     if (isEven(x)) {

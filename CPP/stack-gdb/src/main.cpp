@@ -1,5 +1,3 @@
-// 6.3 — Remainder and Exponentiation
-// https://www.learncpp.com/cpp-tutorial/remainder-and-exponentiation/
 
 #include <iostream>
 

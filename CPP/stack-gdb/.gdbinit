@@ -1,1 +1,2 @@
-/home/rgr/cloud/homefiles/DotFiles/.gdbinit
+break main
+
