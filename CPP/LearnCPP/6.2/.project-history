@@ -23,3 +23,8 @@
 : 1769541583:0;exit
 : 1769541654:0;cmake --build build.debug --clean-first --target main  && ./build.debug/main
 : 1769541667:0;exit
+: 1769874735:0;pwd
+: 1769874765:0;exit
+: 1769890528:0;echo $HISTFILE
+: 1769890540:0;exit
+: 1770132650:0;history

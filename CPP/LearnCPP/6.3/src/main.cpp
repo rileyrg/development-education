@@ -20,7 +20,7 @@ int main()
     else
         std::cout << x << " is odd\n";
 
-    *(int *)0=12;
-
+    *(int*)0 = 12;
+    
     return 0;
 }

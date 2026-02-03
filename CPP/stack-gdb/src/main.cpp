@@ -6,7 +6,9 @@ constexpr bool isEven(const int x) {
 }
 
 int main() {
+
     int x{3};
+
 
     x = 0;
 

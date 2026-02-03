@@ -1,51 +1,17 @@
-: 1769540537:0;rm .history
-: 1769540539:0;ls -al
-: 1769540547:0;echo $HISTFILE
-: 1769540551:0;exit
-: 1769540872:0;./build/main
-: 1769540876:0;ls -l
-: 1769540882:0;./build.debug/main
-: 1769540886:0;exit
-: 1769541078:0;./build.debug/main
-: 1769541087:0;exit
-: 1769541103:0;cmake --build build.debug --clean-first --target main  && ./build.debug/main
-: 1769541110:0;exit
-: 1769541134:0;cmake -B build.debug -DCMAKE_BUILD_TYPE=Debug 
-: 1769541142:0;./build.debug/main
-: 1769541146:0;exit
-: 1769541162:0;cmake --build build.debug --clean-first --target main
-: 1769541182:0;cmake --build build.debug --clean-first --target main  && ./build.debug/main
-: 1769541186:0;exit
-: 1769541564:0;cmake -B build.debug -DCMAKE_BUILD_TYPE=Debug 
-: 1769541569:0;./build.debug/main
-: 1769541577:0;cmake --build build.debug --clean-first --target main
-: 1769541579:0;./build.debug/main
-: 1769541583:0;exit
-: 1769541654:0;cmake --build build.debug --clean-first --target main  && ./build.debug/main
-: 1769541667:0;exit
-: 1769541847:0;cmake -B build.debug -DCMAKE_BUILD_TYPE=Debug 
-: 1769541850:0;cmake --build build.debug --clean-first --target main  && ./build.debug/main
-: 1769541864:0;exit
-: 1769544112:0;cmake --build build.debug --clean-first --target main  && ./build.debug/main
-: 1769544156:0;exit
-: 1769545914:0;history
-: 1769545926:0;exit
-: 1769554351:0;cmake -B build.debug -DCMAKE_BUILD_TYPE=Debug 
-: 1769554357:0;cmake --build build.debug --clean-first --target main 
-: 1769554365:0;cmake --build build.debug --target main 
-: 1769554384:0;cd build.debug
-: 1769554385:0;ls
-: 1769554389:0;make
-: 1769554398:0;make clean
-: 1769554403:0;ls -l
-: 1769554406:0;make
-: 1769554409:0;ls -l
-: 1769554421:0;exit
-: 1769554745:0;build.debug/main
-: 1769554761:0;rm -rf build.debug
-: 1769554776:0;cmake -B build.debug -DCMAKE_BUILD_TYPE=Debug 
-: 1769554786:0;cmake --build build.debug --target main 
-: 1769554790:0;exit
-: 1769620978:0;build.debug/main
-: 1769621001:0;cat .project-history
-: 1769621004:0;exit
+: 1769940964:0;exit
+: 1769940971:0;history
+: 1769940974:0;exit
+: 1769940981:0;history
+: 1769940986:0;exit
+: 1769945100:0;echo $HISTFILE
+: 1769945103:0;exit
+: 1769945719:0;echo $HISTFILE
+: 1769945721:0;exit
+: 1769948374:0;echo $HISTFILE
+: 1769948377:0;exit
+: 1770030421:0;echo $HISTFILE
+: 1770132320:0;ssh t14s
+: 1770132336:0;ls src
+: 1770132435:0;cmake -B build.debu -DCMAKE_BUILD_TYPE=Debu 
+: 1770132458:0;cmake --build build.debug --clean-first --target main  && ./build.debug/main
+: 1770132513:0;gdb build.debug/main
