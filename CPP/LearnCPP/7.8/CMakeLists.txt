@@ -11,6 +11,7 @@ target_include_directories(main PRIVATE src/include)
 target_sources(main
   PRIVATE
   src/main.cpp
+  src/constants.cpp
 )
 
 
