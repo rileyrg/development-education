@@ -6,25 +6,31 @@
 
 int main()
 {
-        // Define a bunch of physical/emotional states
-	[[maybe_unused]] constexpr std::uint8_t isHungry   { 1 << 0 }; // 0000 0001
-	[[maybe_unused]] constexpr std::uint8_t isSad      { 1 << 1 }; // 0000 0010
-	[[maybe_unused]] constexpr std::uint8_t isMad      { 1 << 2 }; // 0000 0100
-	[[maybe_unused]] constexpr std::uint8_t isHappy    { 1 << 3 }; // 0000 1000
-	[[maybe_unused]] constexpr std::uint8_t isLaughing { 1 << 4 }; // 0001 0000
-	[[maybe_unused]] constexpr std::uint8_t isAsleep   { 1 << 5 }; // 0010 0000
-	[[maybe_unused]] constexpr std::uint8_t isDead     { 1 << 6 }; // 0100 0000
-	[[maybe_unused]] constexpr std::uint8_t isCrying   { 1 << 7 }; // 1000 0000
+	constexpr std::uint32_t redBits{ 0xFF000000 };
+	constexpr std::uint32_t greenBits{ 0x00FF0000 };
+	constexpr std::uint32_t blueBits{ 0x0000FF00 };
+	constexpr std::uint32_t alphaBits{ 0x000000FF };
 
-	std::uint8_t me{}; // all flags/options turned off to start
-	me |= (isHappy | isLaughing); // I am happy and laughing
-	me &= ~isLaughing; // I am no longer laughing
+	std::cout << "Enter a 32-bit RGBA color value in hexadecimal (e.g. FF7F3300): ";
+	std::uint32_t pixel{};
+	std::cin >> std::hex >> pixel; // std::hex allows us to read in a hex value
 
-	// Query a few states
-	// (we'll use static_cast<bool> to interpret the results as a boolean value)
-	std::cout << std::boolalpha; // print true or false instead of 1 or 0
-	std::cout << "I am happy? " << static_cast<bool>(me & isHappy) << '\n';
-	std::cout << "I am laughing? " << static_cast<bool>(me & isLaughing) << '\n';
+	// use Bitwise AND to isolate the pixels for our given color,
+	// then right shift the value into the lower 8 bits
+	const std::uint8_t red{ static_cast<std::uint8_t>((pixel & redBits) >> 24) };
+	const std::uint8_t green{ static_cast<std::uint8_t>((pixel & greenBits) >> 16) };
+	const std::uint8_t blue{ static_cast<std::uint8_t>((pixel & blueBits) >> 8) };
+	const std::uint8_t alpha{ static_cast<std::uint8_t>(pixel & alphaBits) };
+
+	std::cout << "Your color contains:\n";
+	std::cout << std::hex; // print the following values in hex
+
+        // reminder: std::uint8_t will likely print as a char
+        // we static_cast to int to ensure it prints as an integer
+	std::cout << static_cast<int>(red)   << " red\n";
+	std::cout << static_cast<int>(green) << " green\n";
+	std::cout << static_cast<int>(blue)  << " blue\n";
+	std::cout << static_cast<int>(alpha) << " alpha\n";
 
 	return 0;
 }
