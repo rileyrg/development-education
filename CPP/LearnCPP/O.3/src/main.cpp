@@ -6,22 +6,25 @@
 
 int main()
 {
-    [[maybe_unused]] constexpr std::uint8_t mask0{ 0b0000'0001 }; // represents bit 0
-    [[maybe_unused]] constexpr std::uint8_t mask1{ 0b0000'0010 }; // represents bit 1
-    [[maybe_unused]] constexpr std::uint8_t mask2{ 0b0000'0100 }; // represents bit 2
-    [[maybe_unused]] constexpr std::uint8_t mask3{ 0b0000'1000 }; // represents bit 3
-    [[maybe_unused]] constexpr std::uint8_t mask4{ 0b0001'0000 }; // represents bit 4
-    [[maybe_unused]] constexpr std::uint8_t mask5{ 0b0010'0000 }; // represents bit 5
-    [[maybe_unused]] constexpr std::uint8_t mask6{ 0b0100'0000 }; // represents bit 6
-    [[maybe_unused]] constexpr std::uint8_t mask7{ 0b1000'0000 }; // represents bit 7
+        // Define a bunch of physical/emotional states
+	[[maybe_unused]] constexpr std::uint8_t isHungry   { 1 << 0 }; // 0000 0001
+	[[maybe_unused]] constexpr std::uint8_t isSad      { 1 << 1 }; // 0000 0010
+	[[maybe_unused]] constexpr std::uint8_t isMad      { 1 << 2 }; // 0000 0100
+	[[maybe_unused]] constexpr std::uint8_t isHappy    { 1 << 3 }; // 0000 1000
+	[[maybe_unused]] constexpr std::uint8_t isLaughing { 1 << 4 }; // 0001 0000
+	[[maybe_unused]] constexpr std::uint8_t isAsleep   { 1 << 5 }; // 0010 0000
+	[[maybe_unused]] constexpr std::uint8_t isDead     { 1 << 6 }; // 0100 0000
+	[[maybe_unused]] constexpr std::uint8_t isCrying   { 1 << 7 }; // 1000 0000
 
-    std::uint8_t flags{ 0b0000'0101 }; // 8 bits in size means room for 8 flags
+	std::uint8_t me{}; // all flags/options turned off to start
+	me |= (isHappy | isLaughing); // I am happy and laughing
+	me &= ~isLaughing; // I am no longer laughing
 
-    std::cout << "bit 2 is " << (static_cast<bool>(flags & mask2) ? "on\n" : "off\n");
-    flags ^= mask2; // flip bit 2
-    std::cout << "bit 2 is " << (static_cast<bool>(flags & mask2) ? "on\n" : "off\n");
-    flags ^= mask2; // flip bit 2
-    std::cout << "bit 2 is " << (static_cast<bool>(flags & mask2) ? "on\n" : "off\n");
+	// Query a few states
+	// (we'll use static_cast<bool> to interpret the results as a boolean value)
+	std::cout << std::boolalpha; // print true or false instead of 1 or 0
+	std::cout << "I am happy? " << static_cast<bool>(me & isHappy) << '\n';
+	std::cout << "I am laughing? " << static_cast<bool>(me & isLaughing) << '\n';
 
-    return 0;
+	return 0;
 }
