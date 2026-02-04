@@ -1,28 +1,28 @@
 // 7.4 — Introduction to global variables
 // https://www.learncpp.com/cpp-tutorial/introduction-to-global-variables/
-
 #include <iostream>
 
-namespace Foo // Foo is defined in the global scope
-{
-    int g_x {}; // g_x is now inside the Foo namespace, but is still a global variable
-}
+const int g_x;     // error: constant variables must be initialized
+constexpr int g_w; // error: constexpr variables must be initialized
+
+const int g_y { 1 };     // const global variable g_y, initialized with a value
+constexpr int g_z { 2 }; // constexpr global variable g_z, initialized with a value
 
 void doSomething()
 {
     // global variables can be seen and used everywhere in the file
-    Foo::g_x = 3;
-    std::cout << Foo::g_x << '\n';
+    std::cout << g_y << '\n';
+    std::cout << g_z << '\n';
 }
 
 int main()
 {
     doSomething();
-    std::cout << Foo::g_x << '\n';
 
     // global variables can be seen and used everywhere in the file
-    Foo::g_x = 5;
-    std::cout << Foo::g_x << '\n';
+    std::cout << g_y << '\n';
+    std::cout << g_z << '\n';
 
     return 0;
 }
+// g_y and g_z goes out of scope here
