@@ -1,14 +1,20 @@
 // 7.2 — User-defined namespaces and the scope resolution operator
 // https://www.learncpp.com/cpp-tutorial/user-defined-namespaces-and-the-scope-resolution-operator/
-#include "circle.h" // for BasicMath::pi
-#include "growth.h" // for BasicMath::e
-
 #include <iostream>
+
+namespace Foo::Goo
+{
+    int add(int x, int y)
+    {
+        return x + y;
+    }
+}
 
 int main()
 {
-    std::cout << BasicMath::pi << '\n';
-    std::cout << BasicMath::e << '\n';
+    namespace Active = Foo::Goo; // active now refers to Foo::Goo
+
+    std::cout << Active::add(1, 2) << '\n'; // This is really Foo::Goo::add()
 
     return 0;
-}
+}  // The Active alias ends here
