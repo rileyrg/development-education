@@ -6,6 +6,7 @@ set(CMAKE_BUILD_PARALLEL_LEVEL 8)
 project(Add VERSION 0.1.0 LANGUAGES C CXX)
 
 add_executable(main)
+target_include_directories(main PRIVATE src/include)
 
 target_sources(main
   PRIVATE
