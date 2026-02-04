@@ -1,0 +1,17 @@
+// 6.8 — Logical operators
+// https://www.learncpp.com/cpp-tutorial/logical-operators/
+
+#include <iostream>
+
+int main()
+{
+    std::cout << "Enter a number: ";
+    int value {};
+    std::cin >> value;
+
+    if (value > 10 && value < 20)
+        std::cout << "Your value is between 10 and 20\n";
+    else
+        std::cout << "Your value is not between 10 and 20\n";
+    return 0;
+}
