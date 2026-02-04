@@ -3,25 +3,26 @@
 
 #include <iostream>
 
-// Variables declared outside of a function are global variables
-int g_x {}; // global variable g_x
+namespace Foo // Foo is defined in the global scope
+{
+    int g_x {}; // g_x is now inside the Foo namespace, but is still a global variable
+}
 
 void doSomething()
 {
     // global variables can be seen and used everywhere in the file
-    g_x = 3;
-    std::cout << g_x << '\n';
+    Foo::g_x = 3;
+    std::cout << Foo::g_x << '\n';
 }
 
 int main()
 {
     doSomething();
-    std::cout << g_x << '\n';
+    std::cout << Foo::g_x << '\n';
 
     // global variables can be seen and used everywhere in the file
-    g_x = 5;
-    std::cout << g_x << '\n';
+    Foo::g_x = 5;
+    std::cout << Foo::g_x << '\n';
 
     return 0;
 }
-// g_x goes out of scope here
