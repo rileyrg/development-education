@@ -1,23 +1,17 @@
 // O.2 — Bitwise operators
 // https://www.learncpp.com/cpp-tutorial/bitwise-operators/
 #include <bitset>
+#include <cstdint>
 #include <iostream>
 
 int main()
 {
-    std::bitset<4> b4{ 0b100 }; // b4 is 0100
-    std::bitset<8> b8{ 0b100 }; // b8 is 0000 0100
+    std::uint8_t c { 0b00001111 };
 
-    std::cout << "Initial values:\n";
-    std::cout << "Bits: " << b4 << ' ' << b8 << '\n';
-    std::cout << "Values: " << b4.to_ulong() << ' ' << b8.to_ulong() << "\n\n";
-
-    b4 = ~b4; // flip b4 to 1011
-    b8 = ~b8; // flip b8 to 1111 1011
-
-    std::cout << "After bitwise NOT:\n";
-    std::cout << "Bits: " << b4 << ' ' << b8 << '\n';
-    std::cout << "Values: " << b4.to_ulong() << ' ' << b8.to_ulong() << '\n';
+    std::cout << std::bitset<32>(~c) << '\n';     // incorrect: prints 11111111111111111111111111110000
+    std::cout << std::bitset<32>(c << 6) << '\n'; // incorrect: prints 0000000000000000001111000000
+    std::uint8_t cneg { ~c };                     // error: narrowing conversion from unsigned int to std::uint8_t
+    c = ~c;                                       // possible warning: narrowing conversion from unsigned int to std::uint8_t
 
     return 0;
 }
